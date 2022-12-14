@@ -21,7 +21,7 @@ public class RemoteControlController : ControllerBase
     {
         var path = _configuration.GetConnectionString(ScriptFolderName)
             ?? throw new Exception($"Connection {ScriptFolderName} must be defined in appsettings.json");
-        return Directory.GetFiles(path).Select(f => Path.GetFileName(f)).Where(p => p.EndsWith(".exe"));
+        return Directory.GetFiles(path).Select(f => Path.GetFileName(f)).Where(p => p.EndsWith(".bat") || p.EndsWith(".exe"));
     }
 
     [HttpPost]
