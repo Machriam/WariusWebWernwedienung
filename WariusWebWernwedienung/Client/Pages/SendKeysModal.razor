@@ -1,12 +1,27 @@
 ﻿@using Blazored.Modal;
+@using System.Text.Json;
+@using WariusWebWernwedienung.Client.UiComponents
 <div class="col-md-12 d-flex flex-column" style="height:300px;width:300px;justify-content:space-evenly">
     <label>Text to Send:</label>
-    <input class="form-control" @bind-value="ButtonInformation.Parameter" />
+    <DataList Items="@_suggestedItems" InputHasChanged="@InputHasChanged"></DataList>
     <button class="btn btn-primary" @onclick="@(()=>Close(""))">Send</button>
     <button class="btn btn-primary" @onclick="@(()=>Close("~"))">Send with Enter</button>
 </div>
 @code {
     [CascadingParameter] BlazoredModalInstance ModalInstance { get; set; } = default!;
+    [Inject] ILocalStorageInterop LocalStorageInterop { get; set; } = default!;
+    private List<StringDataListItem> _suggestedItems = new();
+    private const string SuggestedTextId = "SuggestedTexts";
+    protected override async Task OnInitializedAsync()
+    {
+        var items = await LocalStorageInterop.GetItem(SuggestedTextId) ?? "[]";
+        _suggestedItems = JsonSerializer.Deserialize<List<StringDataListItem>>(items) ?? new();
+    }
+    public void InputHasChanged(DataListEntry entry)
+    {
+        ButtonInformation.Parameter = entry.SelectedText ?? "";
+    }
+
     public ButtonInformation ButtonInformation = new()
         {
             Filename = "SendKeys.exe"
@@ -14,6 +29,13 @@
     [Parameter] public List<string> FileNames { get; set; } = new();
     public void Close(string suffix)
     {
+        ButtonInformation.Parameter = ButtonInformation.Parameter.Trim();
+        if (!string.IsNullOrWhiteSpace(ButtonInformation.Parameter) &&
+        !_suggestedItems.Any(i => i.GetText == ButtonInformation.Parameter))
+        {
+            _suggestedItems.Insert(0, new StringDataListItem(ButtonInformation.Parameter));
+        }
+        LocalStorageInterop.SetItem(SuggestedTextId, JsonSerializer.Serialize(_suggestedItems.Take(10)));
         ButtonInformation.Parameter += suffix;
         ModalInstance.CloseAsync(ModalResult.Ok<ButtonInformation>(ButtonInformation));
     }
