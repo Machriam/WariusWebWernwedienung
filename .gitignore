@@ -1,0 +1,17 @@
+**/obj/*
+**/bin/*
+**/*.class
+**/*.vs
+**/*.lst
+**/temp
+Confluence/**/*.pdf
+Confluence/**/*.rar
+Confluence/**/*.exe
+Confluence/**/*.ttf
+Confluence/**/*.7z
+/X-Spreadsheet/node_modules
+/Server/debug.log
+/Server/browsersync-update.txt
+/PeptidesTools.Unittests.*/**/Synthesis_Logs/*.txt
+/WariusWebWernwedienung/Server/Certs/wert.key
+/WariusWebWernwedienung/Server/Certs/wert.crt

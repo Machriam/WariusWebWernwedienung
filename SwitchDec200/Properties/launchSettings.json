@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "New folder": {
+      "commandName": "Project",
+      "commandLineArgs": "1"
+    }
+  }
+}

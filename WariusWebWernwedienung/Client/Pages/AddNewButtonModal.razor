@@ -1,0 +1,27 @@
+﻿@using Blazored.Modal;
+<div class="col-md-12 row" style="height:500px;width:300px">
+    <label>Filename:</label>
+    <select @onchange="@(args=>ButtonInformation.Filename=args.Value?.ToString()??"")">
+        <option value=""></option>
+        @foreach (var file in FileNames)
+        {
+            <option value="@file">@file</option>
+        }
+    </select>
+    <label>Parameter:</label>
+    <input class="form-control" @bind-value="ButtonInformation.Parameter" />
+    <label>Buttonname:</label>
+    <input class="form-control" @bind-value="ButtonInformation.Label" />
+    <label>Dynamic Parameter</label>
+    <input type="checkbox" class="form-check" @bind-value="ButtonInformation.DynamicParameter" />
+    <button class="btn btn-primary" @onclick="Close">Add Button</button>
+</div>
+@code {
+    [CascadingParameter] BlazoredModalInstance ModalInstance { get; set; } = default!;
+    public ButtonInformation ButtonInformation = new();
+    [Parameter] public List<string> FileNames { get; set; } = new();
+    public void Close()
+    {
+        ModalInstance.CloseAsync(ModalResult.Ok<ButtonInformation>(ButtonInformation));
+    }
+}

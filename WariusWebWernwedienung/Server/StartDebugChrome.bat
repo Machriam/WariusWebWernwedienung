@@ -1,0 +1,1 @@
+"C:\Program Files\Google\Chrome\Application\chrome.exe" --remote-debugging-port=9222 --disable-session-crashed-bubble --user-data-dir="C:\blazor-chrome-debug" https://localhost:5000
