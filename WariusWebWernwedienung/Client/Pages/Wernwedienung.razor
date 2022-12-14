@@ -11,6 +11,7 @@
 </div>
 
 <div class="d-flex flex-column" style="overflow-y:scroll">
+    <button @onclick="SendText" style="background-color:darkgrey" class="btn m-2">Send Text</button>
     @foreach (var button in _buttons)
     {
         <button class="btn @(_removeButtonsOn?"btn-danger":"btn-primary") m-2"
@@ -57,6 +58,20 @@
         _buttons.Add(newInformation);
         await LocalStorageInterop.SetItem(LocalStorageButtonInformation, JsonSerializer.Serialize(_buttons));
         StateHasChanged();
+    }
+    private async Task SendText()
+    {
+        currentCount++;
+        var newInformation = await ModalHelper.ShowModal<SendKeysModal, ButtonInformation>("Send Keys", new()
+        {
+            {nameof(AddNewButtonModal.FileNames),_executableScripts}
+        });
+        if (newInformation == null) return;
+        await RemoteControlService.SendRemoteControl(new RemoteControlParameter()
+            {
+                FileName = newInformation.Filename,
+                Parameter = newInformation.Parameter
+            });
     }
     private async Task ExecuteScript(ButtonInformation button)
     {
