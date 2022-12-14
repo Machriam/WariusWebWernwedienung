@@ -2,6 +2,17 @@
 
 namespace WariusWebWernwedienung.Client.UiComponents;
 
+public class StringDataListItem : IDataListItem
+{
+    public StringDataListItem()
+    { }
+
+    public StringDataListItem(string text)
+    { GetText = text; }
+
+    public string? GetText { get; set; }
+}
+
 public interface IDataListItem
 {
     string? GetText { get; }
@@ -28,6 +39,7 @@ public partial class DataList : ComponentBase
 
     [Parameter]
     public Func<IDataListItem, bool>? InputValidator { get; set; }
+
     [Parameter]
     public Func<string>? SelectedItemSelector { get; set; }
 
@@ -45,6 +57,7 @@ public partial class DataList : ComponentBase
         else _filteredItems = Items;
         if (SelectedItemSelector != null) SelectedText = SelectedItemSelector.Invoke();
     }
+
     [Parameter]
     public IEnumerable<IDataListItem> Items { get; set; } = new List<IDataListItem>();
 
