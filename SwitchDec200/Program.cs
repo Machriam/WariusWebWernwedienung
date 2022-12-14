@@ -15,7 +15,7 @@ var formData = new FormUrlEncodedContent(new Dictionary<string, string>()
 {
     { "sid",sid},
     { "device","16"},
-    { "switch",args.Length==0?"0": args[0]},
+    { "switch",args.Length==0?"0": args[1]},
     { "xhr","1"},
     { "useajax","1"},
 });
