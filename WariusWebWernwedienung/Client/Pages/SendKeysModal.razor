@@ -1,0 +1,20 @@
+﻿@using Blazored.Modal;
+<div class="col-md-12 d-flex flex-column" style="height:300px;width:300px;justify-content:space-evenly">
+    <label>Text to Send:</label>
+    <input class="form-control" @bind-value="ButtonInformation.Parameter" />
+    <button class="btn btn-primary" @onclick="@(()=>Close(""))">Send</button>
+    <button class="btn btn-primary" @onclick="@(()=>Close("~"))">Send with Enter</button>
+</div>
+@code {
+    [CascadingParameter] BlazoredModalInstance ModalInstance { get; set; } = default!;
+    public ButtonInformation ButtonInformation = new()
+        {
+            Filename = "SendKeys.exe"
+        };
+    [Parameter] public List<string> FileNames { get; set; } = new();
+    public void Close(string suffix)
+    {
+        ButtonInformation.Parameter += suffix;
+        ModalInstance.CloseAsync(ModalResult.Ok<ButtonInformation>(ButtonInformation));
+    }
+}
