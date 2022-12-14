@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.ResponseCompression;
+﻿using Microsoft.AspNetCore.ResponseCompression;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +13,15 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseWebAssemblyDebugging();
+    try
+    {
+        System.Diagnostics.Process.Start("./StartDebugChrome.bat");
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine("Could not start Chrome Debugger");
+        Console.WriteLine(ex.Message);
+    }
 }
 else
 {

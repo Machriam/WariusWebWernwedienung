@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WariusWebWernwedienung.Server", "Server\WariusWebWernwedienung.Server.csproj", "{9A16B14F-66D1-495F-A69D-0B66547928AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WariusWebWernwedienung.Server", "Server\WariusWebWernwedienung.Server.csproj", "{9A16B14F-66D1-495F-A69D-0B66547928AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WariusWebWernwedienung.Client", "Client\WariusWebWernwedienung.Client.csproj", "{77F8C47A-0BC1-4802-B5C7-DCABBF85747C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WariusWebWernwedienung.Client", "Client\WariusWebWernwedienung.Client.csproj", "{77F8C47A-0BC1-4802-B5C7-DCABBF85747C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WariusWebWernwedienung.Shared", "Shared\WariusWebWernwedienung.Shared.csproj", "{E9992A69-76E6-47F8-9536-1E1690FA5EFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WariusWebWernwedienung.Shared", "Shared\WariusWebWernwedienung.Shared.csproj", "{E9992A69-76E6-47F8-9536-1E1690FA5EFF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwitchDec200", "..\SwitchDec200\SwitchDec200.csproj", "{9DC00B7A-A65D-48FD-A924-0C5CC57DAE15}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{E9992A69-76E6-47F8-9536-1E1690FA5EFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E9992A69-76E6-47F8-9536-1E1690FA5EFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E9992A69-76E6-47F8-9536-1E1690FA5EFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DC00B7A-A65D-48FD-A924-0C5CC57DAE15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DC00B7A-A65D-48FD-A924-0C5CC57DAE15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DC00B7A-A65D-48FD-A924-0C5CC57DAE15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DC00B7A-A65D-48FD-A924-0C5CC57DAE15}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
