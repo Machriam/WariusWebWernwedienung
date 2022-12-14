@@ -21,7 +21,7 @@ public class RemoteControlController : ControllerBase
     {
         var path = _configuration.GetConnectionString(ScriptFolderName)
             ?? throw new Exception($"Connection {ScriptFolderName} must be defined in appsettings.json");
-        return Directory.GetFiles(path).Select(f => Path.GetFileName(f));
+        return Directory.GetFiles(path).Select(f => Path.GetFileName(f)).Where(p => p.EndsWith(".exe"));
     }
 
     [HttpPost]
@@ -30,7 +30,7 @@ public class RemoteControlController : ControllerBase
         var filePath = _configuration.GetConnectionString(ScriptFolderName);
         var process = new Process
         {
-            StartInfo = new ProcessStartInfo(filePath + "\\" + parameter.FileName, parameter.Parameter)
+            StartInfo = new ProcessStartInfo(filePath + "\\" + Path.GetFileName(parameter.FileName), parameter.Parameter)
         };
         return process.Start();
     }
