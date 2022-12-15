@@ -1,1 +1,1 @@
-﻿SendKeys.SendWait(args[0]);
+﻿SendKeys.SendWait(string.Join(" ", args));
