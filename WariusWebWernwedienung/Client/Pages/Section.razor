@@ -22,8 +22,10 @@
 @code {
     [Inject] private IRemoteControlService RemoteControlService { get; set; } = default!;
     [Inject] private ILocalStorageInterop LocalStorageInterop { get; set; } = default!;
-    [Inject] private IModalHelper ModalHelper { get; set; } = default!;
     [CascadingParameter] private IModalService ModalService { get; set; } = default!;
+    [Parameter] public SectionInformation SectionInformation { get; set; } = new();
+    [Inject] private IDataStorage DataStorage { get; set; } = default!;
+    [Inject] private IModalHelper ModalHelper { get; set; } = default!;
     [Inject] private IJSRuntime JSRuntime { get; set; } = default!;
     private const string LocalStorageButtonInformation = nameof(LocalStorageButtonInformation);
     private int currentCount = 0;
