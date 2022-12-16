@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 
 namespace WariusWebWernwedienung.Client;
-
 public interface IModalHelper
 {
     void InitializeModalService(IModalService service, IJSRuntime jSRuntime);

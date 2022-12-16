@@ -3,12 +3,24 @@
 @using WariusWebWernwedienung.Shared;
 
 <PageTitle>Wernwedienung</PageTitle>
+<p class="">Current count: @_currentCount</p>
 <Section></Section>
 @code {
+    [CascadingParameter] private IModalService ModalService { get; set; } = default!;
     [Inject] private ILocalStorageInterop LocalStorageInterop { get; set; } = default!;
-    private const string LocalStorageSections = nameof(LocalStorageSections);
+    [Inject] private IModalHelper ModalHelper { get; set; } = default!;
+    [Inject] private IJSRuntime JSRuntime { get; set; } = default!;
+    [Inject] private EventBus EventBus { get; set; } = default!;
+    private int _currentCount = 0;
     protected override Task OnInitializedAsync()
     {
+        ModalHelper.InitializeModalService(ModalService, JSRuntime);
+        EventBus.ButtonClicked += OnButtonClicked;
         return base.OnInitializedAsync();
+    }
+    public void OnButtonClicked()
+    {
+        _currentCount++;
+        StateHasChanged();
     }
 }
