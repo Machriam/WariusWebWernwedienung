@@ -30,7 +30,8 @@ public class RemoteControlController : ControllerBase
         var filePath = _configuration.GetConnectionString(ScriptFolderName);
         var process = new Process
         {
-            StartInfo = new ProcessStartInfo(filePath + "\\" + Path.GetFileName(parameter.FileName), parameter.Parameter)
+            StartInfo = new ProcessStartInfo(filePath + "\\" + Path.GetFileName(parameter.FileName),
+                                             "\"" + parameter.Parameter + "\"")
         };
         return process.Start();
     }
