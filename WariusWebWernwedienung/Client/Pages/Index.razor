@@ -1,9 +1,48 @@
 ﻿@page "/"
+@using System.Text.Json;
+@using WariusWebWernwedienung.Shared;
 
-<PageTitle>Index</PageTitle>
+<PageTitle>Wernwedienung</PageTitle>
+<div class="col-md-12 d-flex flex-row mb-3" style="align-items:center;justify-content:space-between">
+    <label class="col-md-3">Current count: @_currentCount</label>
+    <button @onclick="SendText" style="background-color:darkgrey;width:50%" class="btn">Send Text</button>
+</div>
+<Section></Section>
+@code {
+    [CascadingParameter] private IModalService ModalService { get; set; } = default!;
+    [Inject] private ILocalStorageInterop LocalStorageInterop { get; set; } = default!;
+    [Inject] private IModalHelper ModalHelper { get; set; } = default!;
+    [Inject] private IJSRuntime JSRuntime { get; set; } = default!;
+    [Inject] private EventBus EventBus { get; set; } = default!;
+    [Inject] private IRemoteControlService RemoteControlService { get; set; } = default!;
+    private List<string> _executableScripts = new();
+    private int _currentCount = 0;
+    protected override async Task OnInitializedAsync()
+    {
+        ModalHelper.InitializeModalService(ModalService, JSRuntime);
+        EventBus.ButtonClicked += OnButtonClicked;
+        _executableScripts = (await RemoteControlService.GetExecutableScripts())?.ToList() ?? new();
+        await base.OnInitializedAsync();
+    }
 
-<h1>Hello, world!</h1>
+    private async Task SendText()
+    {
+        var newInformation = await ModalHelper.ShowModal<SendKeysModal, ButtonInformation>("Send Keys", new()
+        {
+            {nameof(AddNewButtonModal.FileNames),_executableScripts}
+        });
+        if (newInformation == null) return;
+        await RemoteControlService.SendRemoteControl(new RemoteControlParameter()
+            {
+                FileName = newInformation.Filename,
+                Parameter = newInformation.Parameter
+            });
+        EventBus.OnButtonClicked();
+    }
 
-Welcome to your new app.
-
-<SurveyPrompt Title="How is Blazor working for you?" />
+    public void OnButtonClicked()
+    {
+        _currentCount++;
+        StateHasChanged();
+    }
+}

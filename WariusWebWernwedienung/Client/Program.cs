@@ -14,7 +14,9 @@ builder.Services.AddTransient<IErrorLogger, JsInterop>();
 builder.Services.AddTransient<IRemoteControlService, RemoteControlService>();
 builder.Services.AddTransient<IRestInteropFactory, RestInteropFactory>();
 builder.Services.AddTransient<ILocalStorageInterop, LocalStorageInterop>();
+builder.Services.AddTransient<IDataStorage, DataStorage>();
 builder.Services.AddSingleton<IModalHelper, ModalHelper>();
+builder.Services.AddSingleton<EventBus>();
 builder.Services.AddBlazoredModal();
 
 await builder.Build().RunAsync();

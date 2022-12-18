@@ -1,0 +1,51 @@
+﻿@using Blazored.Modal;
+<div class="col-md-12 d-flex flex-column" style="height:500px;width:300px">
+    <div style="height:250px;overflow-y:scroll">
+        @foreach (var sectionPart in _sections.Where(s => !_sectionsToDelete.Contains(s)))
+        {
+            <div class="col-md-12 d-flex flex-row m-3" style="justify-content:space-between">
+                <label>@(sectionPart.Name)</label>
+                <button class="btn btn-danger" @onclick="@(()=>RemoveSection(sectionPart))">X</button>
+            </div>
+        }
+    </div>
+    <div>
+        <label>Sectionname:</label>
+        <input class="form-control" @bind-value="SectionInformation.Name" />
+    </div>
+    <button class="btn btn-primary mt-5"
+            disabled="@(_existingSections.Contains(SectionInformation.Name))" @onclick="Close">
+        Save Changes
+    </button>
+</div>
+@code {
+    [CascadingParameter] BlazoredModalInstance ModalInstance { get; set; } = default!;
+    [Inject] IDataStorage DataStorage { get; set; } = default!;
+    public SectionInformation SectionInformation = new();
+    private HashSet<string> _existingSections = new();
+    private HashSet<SectionInformation> _sectionsToDelete = new();
+    [Parameter] public List<string> FileNames { get; set; } = new();
+    private List<SectionInformation> _sections = new();
+    protected override async Task OnInitializedAsync()
+    {
+        await UpdateSections();
+    }
+    private async Task UpdateSections()
+    {
+        _sections = (await DataStorage.GetSectionInformation())?.ToList() ?? new();
+        _existingSections = _sections.Select(s => s.Name).ToHashSet();
+    }
+    private void RemoveSection(SectionInformation section)
+    {
+        _sectionsToDelete.Add(section);
+    }
+    public async Task Close()
+    {
+        foreach (var section in _sectionsToDelete) await DataStorage.DeleteSection(section);
+        if (!string.IsNullOrWhiteSpace(SectionInformation.Name))
+        {
+            await DataStorage.UpdateSection(SectionInformation);
+        }
+        await ModalInstance.CloseAsync(ModalResult.Ok<SectionInformation>(SectionInformation));
+    }
+}

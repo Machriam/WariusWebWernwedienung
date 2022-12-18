@@ -1,5 +1,10 @@
 ﻿namespace WariusWebWernwedienung.Client;
 
+public class SectionInformation
+{
+    public string Name { get; set; } = "";
+    public List<ButtonInformation> ButtonInformation { get; set; } = new();
+}
 public class ButtonInformation
 {
     public string Filename { get; set; } = "";

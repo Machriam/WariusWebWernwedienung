@@ -1,20 +1,28 @@
 ﻿@using Blazored.Modal;
-<div class="col-md-12 row" style="height:500px;width:300px">
-    <label>Filename:</label>
-    <select @onchange="@(args=>ButtonInformation.Filename=args.Value?.ToString()??"")">
-        <option value=""></option>
-        @foreach (var file in FileNames)
-        {
-            <option value="@file">@file</option>
-        }
-    </select>
-    <label>Parameter:</label>
-    <input class="form-control" @bind-value="ButtonInformation.Parameter" />
-    <label>Buttonname:</label>
-    <input class="form-control" @bind-value="ButtonInformation.Label" />
-    <label>Dynamic Parameter</label>
-    <input type="checkbox" class="form-check" @bind-value="ButtonInformation.DynamicParameter" />
-    <button class="btn btn-primary" @onclick="Close">Add Button</button>
+<div class="col-md-12 d-flex flex-column" style="height:500px;width:300px">
+    <div>
+        <label>Filename:</label>
+        <select class="form-select" @onchange="@(args=>ButtonInformation.Filename=args.Value?.ToString()??"")">
+            <option value=""></option>
+            @foreach (var file in FileNames)
+            {
+                <option value="@file">@file</option>
+            }
+        </select>
+    </div>
+    <div>
+        <label>Buttonname:</label>
+        <input class="form-control" @bind-value="ButtonInformation.Label" />
+    </div>
+    <div>
+        <label>Parameter:</label>
+        <input class="form-control" @bind-value="ButtonInformation.Parameter" />
+    </div>
+    <div>
+        <label>Dynamic Parameter</label>
+        <input type="checkbox" class="form-check" @bind-value="ButtonInformation.DynamicParameter" />
+    </div>
+    <button class="btn btn-primary mt-5" @onclick="Close">Add Button</button>
 </div>
 @code {
     [CascadingParameter] BlazoredModalInstance ModalInstance { get; set; } = default!;

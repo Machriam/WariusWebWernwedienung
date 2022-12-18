@@ -1,0 +1,81 @@
+﻿@using System.Text.Json;
+@using WariusWebWernwedienung.Shared;
+@implements IDisposable
+<PageTitle>@(string.IsNullOrEmpty(SectionInformation.Name) ? "Default" : SectionInformation.Name)</PageTitle>
+
+    @if (!string.IsNullOrEmpty(SectionInformation.Name))
+{
+    <div class="d-flex flex-column" style="overflow-y:scroll">
+        <div class="d-flex flex-row mb-2">
+            <button class="btn btn-success" @onclick="AddNewButton">+</button>
+            <div style="flex:auto"></div>
+        </div>
+        @foreach (var button in SectionInformation.ButtonInformation)
+        {
+            <button class="btn @(_removeButtonsOn?"btn-danger":"btn-primary") m-2"
+            @onclick="()=>_removeButtonsOn?RemoveButton(button): ExecuteScript(button)">
+                @button.Label
+            </button>
+        }
+        <button class="btn btn-danger mt-3" @onclick="()=>_removeButtonsOn=!_removeButtonsOn">Remove Buttons</button>
+    </div>
+}
+
+@code {
+    [Inject] private IRemoteControlService RemoteControlService { get; set; } = default!;
+    [Inject] private ILocalStorageInterop LocalStorageInterop { get; set; } = default!;
+    [Inject] private IModalHelper ModalHelper { get; set; } = default!;
+    public SectionInformation SectionInformation { get; set; } = new();
+    [Inject] private IDataStorage DataStorage { get; set; } = default!;
+    [Inject] private EventBus EventBus { get; set; } = default!;
+    private const string LocalStorageButtonInformation = nameof(LocalStorageButtonInformation);
+    private bool _removeButtonsOn;
+    private List<string> _executableScripts = new();
+    protected override async Task OnInitializedAsync()
+    {
+        _executableScripts = (await RemoteControlService.GetExecutableScripts())?.ToList() ?? new();
+        EventBus.SectionSelected += OnSectionSelected;
+        SectionInformation = (await DataStorage.GetSectionInformation())?.FirstOrDefault() ?? new();
+    }
+
+    private Task OnSectionSelected(SectionInformation section)
+    {
+        SectionInformation = section;
+        StateHasChanged();
+        return Task.CompletedTask;
+    }
+
+    private async Task RemoveButton(ButtonInformation button)
+    {
+        SectionInformation.ButtonInformation.Remove(button);
+        await DataStorage.UpdateSection(SectionInformation);
+        StateHasChanged();
+        EventBus.OnButtonClicked();
+    }
+    private async Task AddNewButton()
+    {
+        var newInformation = await ModalHelper.ShowModal<AddNewButtonModal, ButtonInformation>("New Button", new()
+        {
+            {nameof(AddNewButtonModal.FileNames),_executableScripts}
+        });
+        if (newInformation == null || string.IsNullOrWhiteSpace(newInformation.Filename)) return;
+        SectionInformation.ButtonInformation.Add(newInformation);
+        await DataStorage.UpdateSection(SectionInformation);
+        EventBus.OnButtonClicked();
+        StateHasChanged();
+    }
+
+    private async Task ExecuteScript(ButtonInformation button)
+    {
+        await RemoteControlService.SendRemoteControl(new RemoteControlParameter()
+            {
+                FileName = button.Filename,
+                Parameter = button.Parameter
+            });
+        EventBus.OnButtonClicked();
+    }
+    public void Dispose()
+    {
+        EventBus.SectionSelected -= OnSectionSelected;
+    }
+}

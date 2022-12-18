@@ -1,6 +1,7 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿@using WariusWebWernwedienung.Client.Pages;
+<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="">WariusWebWernwedienung</a>
+        <a class="navbar-brand" href="">@(_selectedSection?.Name ?? "Default")</a>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -9,26 +10,52 @@
 
 <div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
     <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="wernwedienung">
-                <span class="oi oi-plus" aria-hidden="true"></span> Wernwedienung
+        @foreach (var sectionPart in _sections)
+        {
+            <div @onclick="@(()=>OnSectionSelected(sectionPart))" class="nav-item px-3">
+                <NavLink class="nav-link" href="">
+                    <span class="oi" aria-hidden="true"></span>@sectionPart.Name
+                </NavLink>
+            </div>
+        }
+        <div @onclick="@AddNewSection" class="nav-item px-3">
+            <NavLink class="nav-link" href="">
+                <span class="oi oi-plus" aria-hidden="true"></span>
             </NavLink>
         </div>
     </nav>
 </div>
 
 @code {
-private bool collapseNavMenu = true;
+    private bool collapseNavMenu = true;
+    [Inject] IDataStorage DataStorage { get; set; } = default!;
+    [Inject] IModalHelper ModalHelper { get; set; } = default!;
+    [Inject] EventBus EventBus { get; set; } = default!;
+    private SectionInformation? _selectedSection;
 
-private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+    private List<SectionInformation> _sections = new();
 
-private void ToggleNavMenu()
-{
-    collapseNavMenu = !collapseNavMenu;
-}
+    protected override async Task OnInitializedAsync()
+    {
+        _sections = (await DataStorage.GetSectionInformation())?.ToList() ?? new();
+        _selectedSection = _sections.FirstOrDefault() ?? new();
+    }
+    private async Task OnSectionSelected(SectionInformation section)
+    {
+        _selectedSection = section;
+        await EventBus.OnSectionSelected(section);
+    }
+    private async Task AddNewSection()
+    {
+        var result = await ModalHelper.ShowModal<AddNewSectionModal, SectionInformation?>("Modify Sections", new());
+        _sections = (await DataStorage.GetSectionInformation())?.ToList() ?? new();
+        if (!string.IsNullOrWhiteSpace(result?.Name)) await OnSectionSelected(result);
+        else await OnSectionSelected(_sections.FirstOrDefault() ?? new());
+    }
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
 }
