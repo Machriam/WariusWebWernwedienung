@@ -38,9 +38,13 @@ public class RemoteControlController : ControllerBase
             {
                 DebuggerAddress = "localhost:9222",
             });
-        driver.Navigate().GoToUrl("https://bs.to");
-        return new List<HtmlLink>();
-        //driver.FindElements(By.)
+        var elements = driver.FindElements(By.Id("video-title-link")).ToList();
+        elements.AddRange(driver.FindElements(By.TagName("a")));
+        return elements.Select(e => new HtmlLink()
+        {
+            Name = e.Text,
+            Link = e.GetAttribute("href")
+        });
     }
 
     [HttpPost]

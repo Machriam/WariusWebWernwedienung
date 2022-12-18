@@ -25,7 +25,7 @@ namespace Unittests.Server.Controllers
         public void Post_StateUnderTest_ExpectedBehavior()
         {
             var sut = CreateRemoteControlController();
-            sut.GetLinks();
+            var result = sut.GetLinks().ToList();
         }
     }
 }
