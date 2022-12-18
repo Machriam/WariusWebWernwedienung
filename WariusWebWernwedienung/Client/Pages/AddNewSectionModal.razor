@@ -11,7 +11,7 @@
     <input class="form-control" @bind-value="SectionInformation.Name" />
     <button class="btn btn-primary"
             disabled="@(_existingSections.Contains(SectionInformation.Name))" @onclick="Close">
-        Add Section
+        Save Changes
     </button>
 </div>
 @code {
@@ -38,7 +38,10 @@
     public async Task Close()
     {
         foreach (var section in _sectionsToDelete) await DataStorage.DeleteSection(section);
-        await DataStorage.UpdateSection(SectionInformation);
+        if (!string.IsNullOrWhiteSpace(SectionInformation.Name))
+        {
+            await DataStorage.UpdateSection(SectionInformation);
+        }
         await ModalInstance.CloseAsync(ModalResult.Ok<SectionInformation>(SectionInformation));
     }
 }

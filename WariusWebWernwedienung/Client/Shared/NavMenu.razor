@@ -1,7 +1,7 @@
 ﻿@using WariusWebWernwedienung.Client.Pages;
 <div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="">WariusWebWernwedienung</a>
+        <a class="navbar-brand" href="">@(_selectedSection?.Name ?? "Default")</a>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -31,6 +31,7 @@
     [Inject] IDataStorage DataStorage { get; set; } = default!;
     [Inject] IModalHelper ModalHelper { get; set; } = default!;
     [Inject] EventBus EventBus { get; set; } = default!;
+    private SectionInformation? _selectedSection;
 
     private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
     private List<SectionInformation> _sections = new();
@@ -38,17 +39,19 @@
     protected override async Task OnInitializedAsync()
     {
         _sections = (await DataStorage.GetSectionInformation())?.ToList() ?? new();
+        await OnSectionSelected(_sections.First());
     }
     private async Task OnSectionSelected(SectionInformation section)
     {
+        _selectedSection = section;
         await EventBus.OnSectionSelected(section);
     }
     private async Task AddNewSection()
     {
         var result = await ModalHelper.ShowModal<AddNewSectionModal, SectionInformation?>("Modify Sections", new());
-        if (result == null) return;
         _sections = (await DataStorage.GetSectionInformation())?.ToList() ?? new();
-        await OnSectionSelected(result);
+        if (!string.IsNullOrWhiteSpace(result?.Name)) await OnSectionSelected(result);
+        else await OnSectionSelected(_sections.FirstOrDefault() ?? new());
     }
 
     private void ToggleNavMenu()
