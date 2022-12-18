@@ -3,8 +3,10 @@
 @using WariusWebWernwedienung.Shared;
 
 <PageTitle>Wernwedienung</PageTitle>
-<p class="">Current count: @_currentCount</p>
-<button @onclick="SendText" style="background-color:darkgrey" class="btn m-2">Send Text</button>
+<div class="col-md-12 d-flex flex-row mb-3" style="align-items:center;justify-content:space-between">
+    <label class="col-md-3">Current count: @_currentCount</label>
+    <button @onclick="SendText" style="background-color:darkgrey;width:50%" class="btn">Send Text</button>
+</div>
 <Section></Section>
 @code {
     [CascadingParameter] private IModalService ModalService { get; set; } = default!;
