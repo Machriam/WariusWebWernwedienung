@@ -21,6 +21,7 @@ public class DataStorage : IDataStorage
     public async Task<IEnumerable<SectionInformation>> GetSectionInformation()
     {
         var information = await _localStorageInterop.GetItem(LocalStorageSections);
+        if (string.IsNullOrEmpty(information)) return new List<SectionInformation>();
         return JsonSerializer.Deserialize<IEnumerable<SectionInformation>>(information) ?? new List<SectionInformation>();
     }
 
