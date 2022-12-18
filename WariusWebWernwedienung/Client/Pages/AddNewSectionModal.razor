@@ -1,15 +1,19 @@
 ﻿@using Blazored.Modal;
-<div class="col-md-12 row" style="height:500px;width:300px">
-    @foreach (var sectionPart in _sections.Where(s => !_sectionsToDelete.Contains(s)))
-    {
-        <div class="col-md-12 row">
-            <label>@(sectionPart.Name)</label>
-            <button class="btn btn-danger" @onclick="@(()=>RemoveSection(sectionPart))">X</button>
-        </div>
-    }
-    <label>Sectionname:</label>
-    <input class="form-control" @bind-value="SectionInformation.Name" />
-    <button class="btn btn-primary"
+<div class="col-md-12 d-flex flex-column" style="height:500px;width:300px">
+    <div style="height:250px;overflow-y:scroll">
+        @foreach (var sectionPart in _sections.Where(s => !_sectionsToDelete.Contains(s)))
+        {
+            <div class="col-md-12 d-flex flex-row m-3" style="justify-content:space-between">
+                <label>@(sectionPart.Name)</label>
+                <button class="btn btn-danger" @onclick="@(()=>RemoveSection(sectionPart))">X</button>
+            </div>
+        }
+    </div>
+    <div>
+        <label>Sectionname:</label>
+        <input class="form-control" @bind-value="SectionInformation.Name" />
+    </div>
+    <button class="btn btn-primary mt-5"
             disabled="@(_existingSections.Contains(SectionInformation.Name))" @onclick="Close">
         Save Changes
     </button>

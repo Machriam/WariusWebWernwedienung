@@ -6,7 +6,7 @@
     @if (!string.IsNullOrEmpty(SectionInformation.Name))
 {
     <div class="d-flex flex-column" style="overflow-y:scroll">
-        <div class="d-flex flex-row">
+        <div class="d-flex flex-row mb-2">
             <button class="btn btn-success" @onclick="AddNewButton">+</button>
             <div style="flex:auto"></div>
         </div>
@@ -17,7 +17,7 @@
                 @button.Label
             </button>
         }
-        <button class="btn btn-danger" @onclick="()=>_removeButtonsOn=!_removeButtonsOn">Remove Buttons</button>
+        <button class="btn btn-danger mt-3" @onclick="()=>_removeButtonsOn=!_removeButtonsOn">Remove Buttons</button>
     </div>
 }
 
@@ -35,6 +35,7 @@
     {
         _executableScripts = (await RemoteControlService.GetExecutableScripts())?.ToList() ?? new();
         EventBus.SectionSelected += OnSectionSelected;
+        SectionInformation = (await DataStorage.GetSectionInformation())?.FirstOrDefault() ?? new();
     }
 
     private Task OnSectionSelected(SectionInformation section)

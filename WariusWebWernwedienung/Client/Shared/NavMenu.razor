@@ -39,7 +39,7 @@
     protected override async Task OnInitializedAsync()
     {
         _sections = (await DataStorage.GetSectionInformation())?.ToList() ?? new();
-        await OnSectionSelected(_sections.First());
+        _selectedSection = _sections.FirstOrDefault() ?? new();
     }
     private async Task OnSectionSelected(SectionInformation section)
     {

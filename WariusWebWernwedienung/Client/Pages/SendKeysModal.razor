@@ -2,8 +2,10 @@
 @using System.Text.Json;
 @using WariusWebWernwedienung.Client.UiComponents
 <div class="col-md-12 d-flex flex-column" style="height:300px;width:300px;justify-content:space-evenly">
-    <label>Text to Send:</label>
-    <DataList Items="@_suggestedItems" InputHasChanged="@InputHasChanged"></DataList>
+    <div class="mb-5">
+        <label>Text to Send:</label>
+        <DataList Items="@_suggestedItems" InputHasChanged="@InputHasChanged"></DataList>
+    </div>
     <button class="btn btn-primary" @onclick="@(()=>Close(""))">Send</button>
     <button class="btn btn-primary" @onclick="@(()=>Close("~"))">Send with Enter</button>
 </div>
