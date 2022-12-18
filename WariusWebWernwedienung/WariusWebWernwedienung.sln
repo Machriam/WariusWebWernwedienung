@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WariusWebWernwedienung.Shar
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwitchDec200", "..\SwitchDec200\SwitchDec200.csproj", "{9DC00B7A-A65D-48FD-A924-0C5CC57DAE15}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SendKeys", "SendKeys\SendKeys.csproj", "{B7F2F2EE-04F7-43A9-A410-3BF06A6FFDAF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SendKeys", "SendKeys\SendKeys.csproj", "{B7F2F2EE-04F7-43A9-A410-3BF06A6FFDAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unittests.Server", "Unittests.Server\Unittests.Server.csproj", "{92D5DF7A-6E70-4A0B-BF10-0B2E95BC7E95}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{B7F2F2EE-04F7-43A9-A410-3BF06A6FFDAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7F2F2EE-04F7-43A9-A410-3BF06A6FFDAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7F2F2EE-04F7-43A9-A410-3BF06A6FFDAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92D5DF7A-6E70-4A0B-BF10-0B2E95BC7E95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92D5DF7A-6E70-4A0B-BF10-0B2E95BC7E95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92D5DF7A-6E70-4A0B-BF10-0B2E95BC7E95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92D5DF7A-6E70-4A0B-BF10-0B2E95BC7E95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
