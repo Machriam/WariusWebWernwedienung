@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
+using Microsoft.Playwright;
 using WariusWebWernwedienung.Shared;
 
 namespace WariusWebWernwedienung.Server.Controllers;
@@ -13,7 +12,6 @@ public class RemoteControlController : ControllerBase
     private const string ScriptFolderName = "ScriptFolder";
     private readonly IConfiguration _configuration;
     private readonly string _scriptFolder;
-    private const string ChromeDriver = "chromedriver.exe";
 
     public RemoteControlController(IConfiguration configuration)
     {
@@ -27,24 +25,71 @@ public class RemoteControlController : ControllerBase
     {
         return Directory.GetFiles(_scriptFolder)
             .Select(f => Path.GetFileName(f))
-            .Where(p => p != ChromeDriver && (p.EndsWith(".bat") || p.EndsWith(".exe")));
+            .Where(p => p.EndsWith(".bat") || p.EndsWith(".exe"));
+    }
+
+    [HttpPost("navigate")]
+    public async Task Navigate([FromBody] HtmlLink link)
+    {
+        using var playwright = await Playwright.CreateAsync();
+        await using var browser = await playwright.Chromium.ConnectOverCDPAsync("http://localhost:9222");
+        var context = browser.Contexts[0];
+        var currentPage = context.Pages[0];
+        var page = await context.NewPageAsync();
+        await currentPage.CloseAsync();
+        await page.BringToFrontAsync();
+        await page.GotoAsync(link.Link);
     }
 
     [HttpGet("links")]
-    public IEnumerable<HtmlLink> GetLinks()
+    public async Task<IEnumerable<HtmlLink>> GetLinks()
     {
-        var driver = new ChromeDriver(_scriptFolder + "/" + ChromeDriver,
-            new ChromeOptions()
-            {
-                DebuggerAddress = "localhost:9222",
-            });
-        var elements = driver.FindElements(By.Id("video-title-link")).ToList();
-        elements.AddRange(driver.FindElements(By.TagName("a")));
-        return elements.Select(e => new HtmlLink()
+        using var playwright = await Playwright.CreateAsync();
+        await using var browser = await playwright.Chromium.ConnectOverCDPAsync("http://localhost:9222");
+        var context = browser.Contexts[0];
+        var page = context.Pages[0];
+        var baseUri = new Uri(page.Url).GetLeftPart(UriPartial.Authority);
+        var result = new List<HtmlLink>();
+        var links = await GetLinksBySite(page.Url, page);
+        return await ExtractLinkUrls(baseUri, links);
+    }
+
+    private static async Task<(List<IElementHandle> Elements, Func<string, bool> HrefFilter)> GetLinksBySite(string url, IPage page)
+    {
+        var locator = page.GetByRole(AriaRole.Link);
+        if (url.Contains("youtube"))
         {
-            Name = e.Text,
-            Link = e.GetAttribute("href")
-        });
+            Func<string, bool> filter = s => s.Contains("watch");
+            if (url.Contains("/watch")) return ((await page.Locator(".yt-simple-endpoint",
+                        new() { Has = page.Locator("[id=video-title]") }).ElementHandlesAsync()).ToList(), filter);
+            return ((await page.Locator("[id=video-title-link]").ElementHandlesAsync()).ToList(), filter);
+        }
+        else return ((await locator.ElementHandlesAsync()).ToList(), s => !string.IsNullOrEmpty(s));
+    }
+
+    private static async Task<IEnumerable<HtmlLink>> ExtractLinkUrls(string baseUri, (List<IElementHandle> Handles, Func<string, bool> HrefFilter) handles)
+    {
+        var result = new List<HtmlLink>();
+        foreach (var element in handles.Handles)
+        {
+            string href;
+            try
+            {
+                href = await element.GetAttributeAsync("href") ?? "";
+                if (!handles.HrefFilter(href)) continue;
+            }
+            catch (Exception)
+            {
+                continue;
+            }
+            var text = await element.InnerTextAsync();
+            result.Add(new HtmlLink()
+            {
+                Link = baseUri.Trim('/') + "/" + href.Trim('/'),
+                Name = text
+            });
+        }
+        return result;
     }
 
     [HttpPost]

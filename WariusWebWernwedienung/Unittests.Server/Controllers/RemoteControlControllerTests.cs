@@ -1,8 +1,7 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using FluentAssertions;
+using Microsoft.Extensions.Configuration;
 using NSubstitute;
-using System;
 using WariusWebWernwedienung.Server.Controllers;
-using Xunit;
 
 namespace Unittests.Server.Controllers
 {
@@ -22,10 +21,27 @@ namespace Unittests.Server.Controllers
         }
 
         [Fact]
-        public void Post_StateUnderTest_ExpectedBehavior()
+        public async Task GetLinks_ShouldWork()
         {
             var sut = CreateRemoteControlController();
-            var result = sut.GetLinks().ToList();
+            var result = (await sut.GetLinks()).ToList();
+            result.Count.Should().BeGreaterThan(0);
+        }
+
+        [Fact]
+        public async Task Navigation_ShouldWork()
+        {
+            var sut = CreateRemoteControlController();
+            var result = (await sut.GetLinks()).ToList();
+            await sut.Navigate(result[0]);
+        }
+
+        [Fact]
+        public async Task Youtube_WatchLinks_ShouldWork()
+        {
+            var sut = CreateRemoteControlController();
+            await sut.Navigate(new() { Link = "https://www.youtube.com/watch?v=FVb04db4_Ps" });
+            var result = (await sut.GetLinks()).ToList();
         }
     }
 }
