@@ -35,13 +35,5 @@ namespace Unittests.Server.Controllers
             var result = (await sut.GetLinks()).ToList();
             await sut.Navigate(result[0]);
         }
-
-        [Fact]
-        public async Task Youtube_WatchLinks_ShouldWork()
-        {
-            var sut = CreateRemoteControlController();
-            await sut.Navigate(new() { Link = "https://www.youtube.com/watch?v=FVb04db4_Ps" });
-            var result = (await sut.GetLinks()).ToList();
-        }
     }
 }

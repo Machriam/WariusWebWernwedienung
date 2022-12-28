@@ -44,14 +44,22 @@ public class RemoteControlController : ControllerBase
     [HttpGet("links")]
     public async Task<IEnumerable<HtmlLink>> GetLinks()
     {
-        using var playwright = await Playwright.CreateAsync();
-        await using var browser = await playwright.Chromium.ConnectOverCDPAsync("http://localhost:9222");
-        var context = browser.Contexts[0];
-        var page = context.Pages[0];
-        var baseUri = new Uri(page.Url).GetLeftPart(UriPartial.Authority);
-        var result = new List<HtmlLink>();
-        var links = await GetLinksBySite(page.Url, page);
-        return await ExtractLinkUrls(baseUri, links);
+        try
+        {
+            using var playwright = await Playwright.CreateAsync();
+            await using var browser = await playwright.Chromium.ConnectOverCDPAsync("http://localhost:9222");
+            var context = browser.Contexts[0];
+            var page = context.Pages[0];
+            var baseUri = new Uri(page.Url).GetLeftPart(UriPartial.Authority);
+            var result = new List<HtmlLink>();
+            var links = await GetLinksBySite(page.Url, page);
+            return await ExtractLinkUrls(baseUri, links);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+            return new List<HtmlLink>();
+        }
     }
 
     private static async Task<(List<IElementHandle> Elements, Func<string, bool> HrefFilter)> GetLinksBySite(string url, IPage page)
@@ -60,9 +68,8 @@ public class RemoteControlController : ControllerBase
         if (url.Contains("youtube"))
         {
             Func<string, bool> filter = s => s.Contains("watch");
-            if (url.Contains("/watch")) return ((await page.Locator(".yt-simple-endpoint",
+            return ((await page.Locator(".yt-simple-endpoint",
                         new() { Has = page.Locator("[id=video-title]") }).ElementHandlesAsync()).ToList(), filter);
-            return ((await page.Locator("[id=video-title-link]").ElementHandlesAsync()).ToList(), filter);
         }
         else return ((await locator.ElementHandlesAsync()).ToList(), s => !string.IsNullOrEmpty(s));
     }
