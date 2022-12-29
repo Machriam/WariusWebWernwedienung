@@ -36,7 +36,10 @@ public class RestInterop : IRestInterop
     public RestInterop(HttpClient http, IErrorLogger logger, string baseRoute)
     {
         _baseRoute = baseRoute;
-        s_jsonOptions ??= new JsonSerializerOptions();
+        s_jsonOptions ??= new JsonSerializerOptions()
+        {
+            PropertyNameCaseInsensitive = true
+        };
         HttpClient = http;
         _logger = logger;
     }

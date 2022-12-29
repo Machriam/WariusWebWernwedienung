@@ -1,0 +1,37 @@
+﻿@using Blazored.Modal;
+@using WariusWebWernwedienung.Shared;
+<div class="col-md-12 d-flex flex-column" style="height:500px;width:300px">
+    <div class="col-md-12" style="overflow-y:scroll">
+        @if (_links == null)
+        {
+            <label class="col-form-label-lg">Searching for Links...</label>
+        }
+        else
+        {
+            if (_links.Count == 0)
+            {
+                <label class="col-form-label-lg">No Links found</label>
+            }
+            @foreach (var link in _links)
+            {
+                <div @onclick="@(async ()=>await Navigate(link))" class="col-md-12 row">
+                    <label class="col-form-label-lg">@link.Name</label>
+                </div>
+            }
+        }
+    </div>
+</div>
+@code {
+    [CascadingParameter] BlazoredModalInstance ModalInstance { get; set; } = default!;
+    [Inject] IRemoteControlService RemoteControlService { get; set; } = default!;
+    private List<HtmlLink>? _links;
+    protected override async Task OnInitializedAsync()
+    {
+        _links = (await RemoteControlService.GetLinks())?.ToList() ?? new();
+    }
+    public async Task Navigate(HtmlLink link)
+    {
+        await RemoteControlService.Navigate(link);
+        await ModalInstance.CloseAsync();
+    }
+}
