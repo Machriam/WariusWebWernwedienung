@@ -13,7 +13,7 @@ if (app.Environment.IsDevelopment())
     app.UseWebAssemblyDebugging();
     try
     {
-        System.Diagnostics.Process.Start("./StartDebugChrome.bat");
+        //System.Diagnostics.Process.Start("./StartDebugChrome.bat");
     }
     catch (Exception ex)
     {

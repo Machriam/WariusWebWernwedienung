@@ -13,6 +13,7 @@ public class RemoteControlController : ControllerBase
     private const string ParameterReplacementsName = "ParameterReplacements";
     private readonly string _scriptFolder;
     private readonly Dictionary<string, string> _parameterReplacements = new();
+    private const string DebuggingAddress = "http://localhost:9333";
 
     public RemoteControlController(IConfiguration configuration)
     {
@@ -35,7 +36,7 @@ public class RemoteControlController : ControllerBase
     public async Task Navigate([FromBody] HtmlLink link)
     {
         using var playwright = await Playwright.CreateAsync();
-        await using var browser = await playwright.Chromium.ConnectOverCDPAsync("http://localhost:9222");
+        await using var browser = await playwright.Chromium.ConnectOverCDPAsync(DebuggingAddress);
         var context = browser.Contexts[0];
         var currentPage = context.Pages[0];
         var page = await context.NewPageAsync();
@@ -50,7 +51,7 @@ public class RemoteControlController : ControllerBase
         try
         {
             using var playwright = await Playwright.CreateAsync();
-            await using var browser = await playwright.Chromium.ConnectOverCDPAsync("http://localhost:9222");
+            await using var browser = await playwright.Chromium.ConnectOverCDPAsync(DebuggingAddress);
             var context = browser.Contexts[0];
             var page = context.Pages[0];
             var baseUri = new Uri(page.Url).GetLeftPart(UriPartial.Authority);

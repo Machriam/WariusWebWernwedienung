@@ -9,6 +9,7 @@
         <div class="d-flex flex-row mb-2">
             <button class="btn btn-success" @onclick="AddNewButton">+</button>
             <div style="flex:auto"></div>
+            <button @onclick="ShowLinksModal" class="btn btn-primary col-md-1">Links</button>
         </div>
         @foreach (var button in SectionInformation.ButtonInformation)
         {
@@ -43,6 +44,10 @@
         SectionInformation = section;
         StateHasChanged();
         return Task.CompletedTask;
+    }
+    private async Task ShowLinksModal()
+    {
+        await ModalHelper.ShowModal<ShowLinksModal>("Links", new());
     }
 
     private async Task RemoveButton(ButtonInformation button)
