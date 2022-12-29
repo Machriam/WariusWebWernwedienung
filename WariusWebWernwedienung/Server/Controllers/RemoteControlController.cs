@@ -38,9 +38,13 @@ public class RemoteControlController : ControllerBase
         using var playwright = await Playwright.CreateAsync();
         await using var browser = await playwright.Chromium.ConnectOverCDPAsync(DebuggingAddress);
         var context = browser.Contexts[0];
-        var currentPage = context.Pages[0];
         var page = await context.NewPageAsync();
-        await currentPage.CloseAsync();
+        while (context.Pages.Count > 1)
+        {
+            var i = 0;
+            if (context.Pages[i] == page) i++;
+            await context.Pages[i].CloseAsync();
+        }
         await page.BringToFrontAsync();
         await page.GotoAsync(link.Link);
     }
@@ -54,6 +58,7 @@ public class RemoteControlController : ControllerBase
             await using var browser = await playwright.Chromium.ConnectOverCDPAsync(DebuggingAddress);
             var context = browser.Contexts[0];
             var page = context.Pages[0];
+            await page.BringToFrontAsync();
             var baseUri = new Uri(page.Url).GetLeftPart(UriPartial.Authority);
             var result = new List<HtmlLink>();
             var links = await GetLinksBySite(page.Url, page);
