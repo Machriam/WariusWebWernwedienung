@@ -15,4 +15,6 @@ Confluence/**/*.7z
 /PeptidesTools.Unittests.*/**/Synthesis_Logs/*.txt
 /WariusWebWernwedienung/Server/Certs/wert.key
 /WariusWebWernwedienung/Server/Certs/wert.crt
+/WariusWebWernwedienung/Server/Certs/wert.crt
+/WakeOnLan
 **/*.user
