@@ -2,7 +2,8 @@
 #include <RFReceiver.h>
 
 void statusBlinking();
-RFReceiver receiver(D3);
+#include <RCSwitch.h>
+RCSwitch mySwitch = RCSwitch();
 
 void setup()
 {
@@ -10,26 +11,24 @@ void setup()
 	pinMode(LED_BUILTIN, OUTPUT);
 	Serial.println("");
 	Serial.println("Setup done.");
-	receiver.begin();
+	mySwitch.enableReceive(D3); // Receiver on interrupt 0 => that is pin #2
 }
 
 void loop()
 {
 	statusBlinking();
-	Serial.println("Receive");
-	byte data[MAX_PACKAGE_SIZE];
-	byte from = 0;
-	byte packageId = 0;
-	if (!receiver.ready())
-		return;
+	if (mySwitch.available())
+	{
+		Serial.print("Received ");
+		Serial.print(mySwitch.getReceivedValue());
+		Serial.print(" / ");
+		Serial.print(mySwitch.getReceivedBitlength());
+		Serial.print("bit ");
+		Serial.print("Protocol: ");
+		Serial.println(mySwitch.getReceivedProtocol());
 
-	Serial.println("Waiting");
-	byte len = receiver.recvPackage(data, &from, &packageId);
-
-	Serial.println("");
-	Serial.print("Package: ");
-	Serial.println(packageId);
-	Serial.println("");
+		mySwitch.resetAvailable();
+	}
 }
 
 static unsigned long s_previousMillis = 0;
@@ -37,9 +36,9 @@ static bool s_ledOn = false;
 
 void statusBlinking()
 {
-	Serial.println("Blink");
 	if (millis() - s_previousMillis > 500)
 	{
+		Serial.println("Blink");
 		if (s_ledOn)
 			digitalWrite(LED_BUILTIN, HIGH);
 		else

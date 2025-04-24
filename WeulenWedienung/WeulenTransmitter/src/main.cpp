@@ -1,29 +1,27 @@
 #include <Arduino.h>
-#include <RH_ASK.h>
-#include <SPI.h> // Not actually used but needed to compile
+#include <RCSwitch.h>
 
-void statusBlinking();
-RH_ASK driver(2000, D3, D5, 4); // tx, rx, ptt, ptt2
+RCSwitch mySwitch = RCSwitch();
 
 void statusBlinking();
 
 void setup()
 {
-	Serial.begin(74880);
+	Serial.begin(115200);
 	pinMode(LED_BUILTIN, OUTPUT);
 	Serial.println("");
 	Serial.println("Setup done.");
-	if (!driver.init())
-		Serial.println("init failed");
+	mySwitch.enableTransmit(D3);
 }
 
 void loop()
 {
+	mySwitch.send(1234, 24);
+	delay(1000);
 	statusBlinking();
-    const char *msg = "Hello World!";
-    driver.send((uint8_t *)msg, strlen(msg));
-    driver.waitPacketSent();
-    delay(1000);
+	mySwitch.send(5678, 24);
+	delay(1000);
+	statusBlinking();
 }
 
 static unsigned long s_previousMillis = 0;
@@ -31,9 +29,9 @@ static bool s_ledOn = false;
 
 void statusBlinking()
 {
-	Serial.println("Blink");
 	if (millis() - s_previousMillis > 500)
 	{
+		Serial.println("Blink");
 		if (s_ledOn)
 			digitalWrite(LED_BUILTIN, HIGH);
 		else
