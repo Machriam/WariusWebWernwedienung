@@ -18,3 +18,5 @@ Confluence/**/*.7z
 /WariusWebWernwedienung/Server/Certs/wert.crt
 /WakeOnLan
 **/*.user
+WeulenWedienung/WeulenReceiver/pcb/*
+WeulenWedienung/WeulenTransmitter/src/secrets.h

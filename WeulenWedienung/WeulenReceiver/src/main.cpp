@@ -4,11 +4,15 @@
 void statusBlinking();
 #include <RCSwitch.h>
 RCSwitch mySwitch = RCSwitch();
+int On = 2913;
+int Off = 5131;
 
 void setup()
 {
 	Serial.begin(115200);
 	pinMode(LED_BUILTIN, OUTPUT);
+	pinMode(D6, OUTPUT);
+	digitalWrite(D6, LOW);
 	Serial.println("");
 	Serial.println("Setup done.");
 	mySwitch.enableReceive(D3); // Receiver on interrupt 0 => that is pin #2
@@ -20,12 +24,21 @@ void loop()
 	if (mySwitch.available())
 	{
 		Serial.print("Received ");
-		Serial.print(mySwitch.getReceivedValue());
+		long receivedValue = mySwitch.getReceivedValue();
+		Serial.print(receivedValue);
 		Serial.print(" / ");
 		Serial.print(mySwitch.getReceivedBitlength());
 		Serial.print("bit ");
 		Serial.print("Protocol: ");
 		Serial.println(mySwitch.getReceivedProtocol());
+		if (receivedValue == On)
+		{
+			digitalWrite(D6, HIGH);
+		}
+		else if (receivedValue == Off)
+		{
+			digitalWrite(D6, LOW);
+		}
 
 		mySwitch.resetAvailable();
 	}

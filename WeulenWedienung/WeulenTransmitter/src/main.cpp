@@ -1,14 +1,26 @@
 #include <Arduino.h>
 #include <RCSwitch.h>
+#include <ESP8266WiFi.h>
+#include <ESP8266WebServer.h>  
+#include <secrets.h>
 
 RCSwitch mySwitch = RCSwitch();
+int On = 2913;
+int Off = 5131;
 
-void statusBlinking();
+ESP8266WebServer server(80);
+
+void connectToWifi();
+void handleOnRequest();
+void handleOffRequest();
+void setupServer();
 
 void setup()
 {
 	Serial.begin(115200);
 	pinMode(LED_BUILTIN, OUTPUT);
+	connectToWifi();
+	setupServer();
 	Serial.println("");
 	Serial.println("Setup done.");
 	mySwitch.enableTransmit(D3);
@@ -16,27 +28,51 @@ void setup()
 
 void loop()
 {
-	mySwitch.send(1234, 24);
-	delay(1000);
-	statusBlinking();
-	mySwitch.send(5678, 24);
-	delay(1000);
-	statusBlinking();
+	server.handleClient();
 }
 
 static unsigned long s_previousMillis = 0;
 static bool s_ledOn = false;
 
-void statusBlinking()
-{
-	if (millis() - s_previousMillis > 500)
-	{
-		Serial.println("Blink");
-		if (s_ledOn)
-			digitalWrite(LED_BUILTIN, HIGH);
-		else
-			digitalWrite(LED_BUILTIN, LOW);
-		s_ledOn = !s_ledOn;
-		s_previousMillis = millis();
-	}
+void connectToWifi(){
+	Serial.print("Connecting to WiFi network: ");
+    Serial.println(WIFI_SSID);
+    
+    WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+    while (WiFi.status() != WL_CONNECTED) {
+        delay(500);
+        Serial.print(".");
+        digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));
+    }
+    
+    Serial.println("");
+    Serial.println("WiFi connected!");
+    Serial.print("IP address: ");
+    Serial.println(WiFi.localIP());
+}
+
+void setupServer() {
+    server.on("/on", HTTP_POST, handleOnRequest);
+    server.on("/off", HTTP_POST, handleOffRequest);
+    
+    server.begin();
+    Serial.println("HTTP server started");
+}
+
+void handleOnRequest() {
+    Serial.println("Received ON request");
+    mySwitch.send(On, 24);
+    server.send(200, "text/plain", "ON signal sent");
+    digitalWrite(LED_BUILTIN, LOW);  
+    delay(200);
+    digitalWrite(LED_BUILTIN, HIGH); 
+}
+
+void handleOffRequest() {
+    Serial.println("Received OFF request");
+    mySwitch.send(Off, 24);
+    server.send(200, "text/plain", "OFF signal sent");
+    digitalWrite(LED_BUILTIN, LOW);  
+    delay(200);
+    digitalWrite(LED_BUILTIN, HIGH); 
 }
