@@ -7,17 +7,18 @@
 ### Bauteile
 
 Die Bauteile
-Q1: PNP-Transistor (z. B. BC557)
 
-Q2: NPN-Transistor (z. B. BC547) – Das ist der Latch-Transistor
+Q1 (PNP): 2N3906 (Ersetzt den BC557. Das ist dein Last-Transistor, der die LED mit Strom versorgt).
 
-Q3: NPN-Transistor (z. B. BC547) – Das ist der Aus-Schalter
+Q2 (NPN): 2N3904 (Ersetzt den BC547. Das ist dein Latch-Transistor für die Selbsthaltung).
 
-R1, R2: 10 kΩ (Basiswiderstände für die Rückkopplung)
+Q3 (NPN): 2N3904 (Ersetzt den BC547. Das ist dein Aus-Schalter / Reset).
 
-R3, R4: 100 kΩ (Pull-Up / Pull-Down, zwingend nötig, damit im AUS-Zustand wirklich null Strom fließt!)
+R1, R2, R_An, R_Aus: 4x 10 kΩ (Basiswiderstände für die Rückkopplung und die Schaltereingänge).
 
-R_LED: Vorwiderstand für deine LED (z. B. 330 Ω)
+R3, R4: 2x 100 kΩ (Pull-Up / Pull-Down, zwingend nötig für den 0-Ampere-Ruhestrom).
+
+R_LED: Vorwiderstand für deine LED (z. B. 330 Ω).
 
 $ 1 0.000005 10.20027730826997 50 5 50 5e-11
 t 592 320 560 320 0 -1 4.999998215005344 -0.0000015299995377304754 100 default
