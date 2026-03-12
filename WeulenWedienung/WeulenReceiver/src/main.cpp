@@ -15,7 +15,7 @@ void setup()
 	digitalWrite(D6, LOW);
 	Serial.println("");
 	Serial.println("Setup done.");
-	mySwitch.enableReceive(D3); // Receiver on interrupt 0 => that is pin #2
+	mySwitch.enableReceive(D2); // Receiver on interrupt 0 => that is pin #2
 }
 
 void loop()
