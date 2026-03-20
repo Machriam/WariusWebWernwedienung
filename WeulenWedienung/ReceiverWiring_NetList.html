@@ -1,1 +1,20 @@
-<html><head><style>body { font-family: JetBrains Mono, sans-serif; color: black; margin: 10px; }h2 { font-size: 12px; margin-top: 10px; margin-bottom: 0px; }p { margin: 0; }hr { margin-top: 10px; margin-bottom: 0; }.netlist { font-family: 'Courier New', monospace; font-size: 11px; }</style></head><body><div class="netlist">Connected node groups:<br><br>&nbsp;&nbsp;[B.B.+, C1.1, ESP8266.8, Q1.1, Q4.1, R3.1, R5.1]<br>&nbsp;&nbsp;[B.B.-, C1.2, C2.1, ESP8266.10, Q2.3, Q3.3, R6.1, R7.1, R8.1, RX470C-V01.4, Weule.2]<br>&nbsp;&nbsp;[C2.2, Q4.3, RX470C-V01.1]<br>&nbsp;&nbsp;[ESP8266.13, RX470C-V01.3]<br>&nbsp;&nbsp;[ESP8266.14, R4.1]<br>&nbsp;&nbsp;[ESP8266.5, R6.2, R_Off.2]<br>&nbsp;&nbsp;[ESP8266.6, R7.2, R_On.1]<br>&nbsp;&nbsp;[Q1.2, R1.2, R3.2]<br>&nbsp;&nbsp;[Q1.3, R2.2, Weule.1]<br>&nbsp;&nbsp;[Q2.1, R1.1]<br>&nbsp;&nbsp;[Q2.2, Q3.1, R2.1, R8.2, R_On.2]<br>&nbsp;&nbsp;[Q3.2, R_Off.1]<br>&nbsp;&nbsp;[Q4.2, R4.2, R5.2]<br></div></body></html>
+<html><head><style>body { font-family: Courier New, sans-serif; color: black; margin: 10px; }h2 { font-size: 12px; margin-top: 10px; margin-bottom: 0px; }p { margin: 0; }hr { margin-top: 10px; margin-bottom: 0; }</style></head><body>B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; N001&nbsp; N002&nbsp; Battery ; Battery [Schematic Symbols]<br>
+BQ1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; N009&nbsp; N008&nbsp; N001&nbsp; 2N3906 ; E-B-C     BJT pinout Transistor (TO-92) [Semiconductors]<br>
+BQ2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; N010&nbsp; N011&nbsp; N002&nbsp; 2N3904 ; C-B-E     BJT pinout Transistor (TO-92) [Semiconductors]<br>
+BQ3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; N011&nbsp; N012&nbsp; N002&nbsp; 2N3904 ; C-B-E     BJT pinout Transistor (TO-92) [Semiconductors]<br>
+BQ4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; N003&nbsp; N013&nbsp; N001&nbsp; 2N3906 ; E-B-C     BJT pinout Transistor (TO-92) [Semiconductors]<br>
+C1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; N001&nbsp; N002&nbsp; 100nF ; Ceramic Capacitor (Radial) [Passive]<br>
+C2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; N002&nbsp; N003&nbsp; 100nF ; Ceramic Capacitor (Radial) [Passive]<br>
+ESP8266&nbsp;&nbsp;&nbsp; N014&nbsp; N015&nbsp; N016&nbsp; N017&nbsp; N006&nbsp; N007&nbsp; N018&nbsp; N001&nbsp; N019&nbsp; N020&nbsp; N005&nbsp; N004&nbsp; N021&nbsp; N022&nbsp; N002&nbsp; N023&nbsp; "DIP IC" ; DIP IC [Semiconductors]<br>
+R1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; N010&nbsp; N008&nbsp; 1K ; Resistor [Passive]<br>
+R2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; N011&nbsp; N009&nbsp; 10K ; Resistor [Passive]<br>
+R3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; N001&nbsp; N008&nbsp; 100K ; Resistor [Passive]<br>
+R4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; N005&nbsp; N013&nbsp; 1K ; Resistor [Passive]<br>
+R5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; N001&nbsp; N013&nbsp; 10K ; Resistor [Passive]<br>
+R6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; N002&nbsp; N006&nbsp; 10K ; Resistor [Passive]<br>
+R7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; N002&nbsp; N007&nbsp; 10K ; Resistor [Passive]<br>
+R8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; N002&nbsp; N011&nbsp; 100K ; Resistor [Passive]<br>
+RX470C-V01 N003&nbsp; N024&nbsp; N004&nbsp; N002&nbsp; "SIP IC" ; SIP IC [Semiconductors]<br>
+R_Off&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; N012&nbsp; N006&nbsp; 10K ; Resistor [Passive]<br>
+R_On&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; N007&nbsp; N011&nbsp; 10K ; Resistor [Passive]<br>
+Weule&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; N009&nbsp; N002&nbsp; "LED Strip 44mA@3,1V" ; LED [Semiconductors]<br></body></html>

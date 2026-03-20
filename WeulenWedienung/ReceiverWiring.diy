@@ -41,7 +41,7 @@
       <id>37c93f0e-294f-483d-a607-1f5a32a7b751</id>
       <name>ESP8266</name>
       <alpha>127</alpha>
-      <value></value>
+      <value>5-&gt;D6,6-&gt;D7,13-&gt;D2,10-&gt;GND,8-&gt;3V3</value>
       <orientation>DEFAULT</orientation>
       <pinCount>_16</pinCount>
       <pinSpacing value="0.1" unit="in"/>
@@ -64,7 +64,7 @@
         <point x="8.5" y="3.0"/>
         <point x="8.5" y="3.1"/>
       </controlPoints>
-      <display>BOTH</display>
+      <display>NAME</display>
       <bodyColor hex="808080"/>
       <borderColor hex="595959"/>
       <labelColor hex="ffffff"/>
@@ -362,9 +362,9 @@
       <name>Trace5</name>
       <alpha>127</alpha>
       <points>
-        <point x="8.3" y="2.1"/>
+        <point x="8.3" y="1.9"/>
         <point x="8.3" y="2.7"/>
-        <point x="8.3" y="2.4000000000000004"/>
+        <point x="8.3" y="2.3000000000000003"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -1000,9 +1000,9 @@
       <name>Trace11</name>
       <alpha>127</alpha>
       <points>
-        <point x="8.5" y="2.1"/>
+        <point x="8.5" y="1.9"/>
         <point x="8.5" y="1.8"/>
-        <point x="8.5" y="1.95"/>
+        <point x="8.5" y="1.85"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -1089,8 +1089,8 @@
       <alpha>127</alpha>
       <points>
         <point x="8.5" y="1.8"/>
-        <point x="8.3" y="1.8"/>
-        <point x="8.399999999999999" y="1.8"/>
+        <point x="8.3" y="1.7"/>
+        <point x="8.399999999999999" y="1.7499999999999993"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -1386,10 +1386,10 @@
       <pinCount>_4</pinCount>
       <pinSpacing value="0.1" unit="in"/>
       <controlPoints>
-        <point x="8.5" y="2.1"/>
-        <point x="8.4" y="2.1"/>
-        <point x="8.3" y="2.1"/>
-        <point x="8.2" y="2.1"/>
+        <point x="8.5" y="1.9"/>
+        <point x="8.4" y="1.9"/>
+        <point x="8.3" y="1.9"/>
+        <point x="8.2" y="1.9"/>
       </controlPoints>
       <display>NAME</display>
       <bodyColor hex="808080"/>
@@ -1510,7 +1510,7 @@
       <moveLabel>false</moveLabel>
       <hideShortLeads>true</hideShortLeads>
       <labelPosition>ABOVE</labelPosition>
-      <value>Battery</value>
+      <value>Battery LiFePO4</value>
       <voltageNew value="3.2" unit="V"/>
     </diylc.misc.BatterySymbol>
     <diylc.semiconductors.TransistorTO92>
@@ -1665,8 +1665,8 @@
       <width value="0.125" unit="in"/>
       <points>
         <point x="8.3" y="1.4"/>
-        <point x="8.3" y="1.8"/>
-        <point x="8.3" y="1.6"/>
+        <point x="8.3" y="1.7"/>
+        <point x="8.3" y="1.55"/>
       </points>
       <bodyColor hex="f0e68c"/>
       <borderColor hex="a8a162"/>
@@ -1748,7 +1748,7 @@
     <diylc.misc.Label>
       <id>96752bfd-40e9-4293-91c0-fd8622635265</id>
       <name>LAB17</name>
-      <point x="8.2" y="2.1"/>
+      <point x="8.2" y="1.9"/>
       <text>GND</text>
       <font reference="../../diylc.misc.Label/font"/>
       <color hex="000000"/>
@@ -1759,7 +1759,7 @@
     <diylc.misc.Label>
       <id>783c333c-e362-454e-b66e-d175bcab2112</id>
       <name>LAB18</name>
-      <point x="8.3" y="2.1"/>
+      <point x="8.3" y="1.9"/>
       <text>DATA</text>
       <font name="Dialog.plain" size="14" style="0"/>
       <color hex="000000"/>
@@ -1770,7 +1770,7 @@
     <diylc.misc.Label>
       <id>85d923d7-1dd2-4338-b84d-d4e4dc5b72e4</id>
       <name>LAB19</name>
-      <point x="8.4" y="2.1"/>
+      <point x="8.4" y="1.9"/>
       <text>DATA</text>
       <font name="Dialog.plain" size="14" style="0"/>
       <color hex="000000"/>
@@ -1781,7 +1781,7 @@
     <diylc.misc.Label>
       <id>752f942c-44ef-42f7-a067-fa1b05b3dfe0</id>
       <name>LAB20</name>
-      <point x="8.5" y="2.1"/>
+      <point x="8.5" y="1.9"/>
       <text>VCC</text>
       <font name="Dialog.plain" size="14" style="0"/>
       <color hex="000000"/>
@@ -1836,16 +1836,6 @@
   </components>
   <groups/>
   <groupsEx>
-    <group>
-      <componentIds>
-        <uuid>8665b4e4-05bb-4db8-9c01-150c81a9e166</uuid>
-        <uuid>7dbf01f0-ec01-47f7-9ec5-f1706d688987</uuid>
-        <uuid>6f1e40b2-9976-41b8-b68c-a915766f81fd</uuid>
-        <uuid>37c93f0e-294f-483d-a607-1f5a32a7b751</uuid>
-        <uuid>3fd588d8-1315-498e-a44e-3e95457a0489</uuid>
-      </componentIds>
-      <name>ESP8266</name>
-    </group>
     <group>
       <componentIds>
         <uuid>96752bfd-40e9-4293-91c0-fd8622635265</uuid>
