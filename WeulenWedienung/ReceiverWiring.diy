@@ -116,7 +116,7 @@
       <orientation>DEFAULT</orientation>
     </diylc.misc.Label>
     <diylc.misc.Label>
-      <id>8665b4e4-05bb-4db8-9c01-150c81a9e166</id>
+      <id>1853bc1f-e878-427a-89b4-1e8a0fd51b6e</id>
       <name>LAB5</name>
       <point x="7.8" y="2.8"/>
       <text>D6</text>
@@ -127,7 +127,7 @@
       <orientation>DEFAULT</orientation>
     </diylc.misc.Label>
     <diylc.misc.Label>
-      <id>8665b4e4-05bb-4db8-9c01-150c81a9e166</id>
+      <id>f647617a-f352-4ce5-a3c4-b4df54603d88</id>
       <name>LAB6</name>
       <point x="7.8" y="2.9"/>
       <text>D7</text>
@@ -138,7 +138,7 @@
       <orientation>DEFAULT</orientation>
     </diylc.misc.Label>
     <diylc.misc.Label>
-      <id>8665b4e4-05bb-4db8-9c01-150c81a9e166</id>
+      <id>b8abe1ae-ed14-49c8-9a9e-4efa27ece68e</id>
       <name>LAB7</name>
       <point x="7.8" y="3.0"/>
       <text>D8</text>
@@ -149,7 +149,7 @@
       <orientation>DEFAULT</orientation>
     </diylc.misc.Label>
     <diylc.misc.Label>
-      <id>8665b4e4-05bb-4db8-9c01-150c81a9e166</id>
+      <id>bfe5abd6-8f60-4681-8c15-8f9d2b7dfc51</id>
       <name>LAB8</name>
       <point x="7.8" y="3.1"/>
       <text>3V3</text>
@@ -160,7 +160,7 @@
       <orientation>DEFAULT</orientation>
     </diylc.misc.Label>
     <diylc.misc.Label>
-      <id>8665b4e4-05bb-4db8-9c01-150c81a9e166</id>
+      <id>75ff7663-0ade-4cff-a56d-88f10e9285ff</id>
       <name>LAB9</name>
       <point x="8.3" y="3.1"/>
       <text>5V</text>
@@ -171,7 +171,7 @@
       <orientation>DEFAULT</orientation>
     </diylc.misc.Label>
     <diylc.misc.Label>
-      <id>8665b4e4-05bb-4db8-9c01-150c81a9e166</id>
+      <id>79842438-f606-4ae3-95c7-b84f3677d5c8</id>
       <name>LAB10</name>
       <point x="8.3" y="3.0"/>
       <text>GND</text>
@@ -182,7 +182,7 @@
       <orientation>DEFAULT</orientation>
     </diylc.misc.Label>
     <diylc.misc.Label>
-      <id>8665b4e4-05bb-4db8-9c01-150c81a9e166</id>
+      <id>3e3e69be-24bb-446c-8ebc-21c609d786ce</id>
       <name>LAB11</name>
       <point x="8.3" y="2.9"/>
       <text>D4</text>
@@ -193,7 +193,7 @@
       <orientation>DEFAULT</orientation>
     </diylc.misc.Label>
     <diylc.misc.Label>
-      <id>8665b4e4-05bb-4db8-9c01-150c81a9e166</id>
+      <id>ab2dc9f1-8f94-4098-b6d4-e8f470077c4b</id>
       <name>LAB12</name>
       <point x="8.3" y="2.8"/>
       <text>D3</text>
@@ -204,7 +204,7 @@
       <orientation>DEFAULT</orientation>
     </diylc.misc.Label>
     <diylc.misc.Label>
-      <id>8665b4e4-05bb-4db8-9c01-150c81a9e166</id>
+      <id>2fd5dad5-6d83-4add-942b-2b394a9c01ee</id>
       <name>LAB13</name>
       <point x="8.3" y="2.7"/>
       <text>D2</text>
@@ -215,7 +215,7 @@
       <orientation>DEFAULT</orientation>
     </diylc.misc.Label>
     <diylc.misc.Label>
-      <id>8665b4e4-05bb-4db8-9c01-150c81a9e166</id>
+      <id>60dc7d9a-9e22-4210-8a65-bb3d5373b215</id>
       <name>LAB14</name>
       <point x="8.3" y="2.6"/>
       <text>D1</text>
@@ -226,7 +226,7 @@
       <orientation>DEFAULT</orientation>
     </diylc.misc.Label>
     <diylc.misc.Label>
-      <id>8665b4e4-05bb-4db8-9c01-150c81a9e166</id>
+      <id>d9244490-9e17-4714-a704-c0f6dab1a0a1</id>
       <name>LAB15</name>
       <point x="8.3" y="2.5"/>
       <text>RX</text>
@@ -237,7 +237,7 @@
       <orientation>DEFAULT</orientation>
     </diylc.misc.Label>
     <diylc.misc.Label>
-      <id>8665b4e4-05bb-4db8-9c01-150c81a9e166</id>
+      <id>f0a3574c-593f-4772-a917-3e9c56d561ce</id>
       <name>LAB16</name>
       <point x="8.3" y="2.4"/>
       <text>TX</text>
@@ -319,8 +319,8 @@
       <alpha>127</alpha>
       <points>
         <point x="8.5" y="3.0"/>
-        <point x="8.7" y="3.0"/>
         <point x="8.6" y="3.0"/>
+        <point x="8.55" y="3.0"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -343,28 +343,6 @@
         <point x="8.1" y="2.0"/>
         <point x="8.1" y="1.4"/>
         <point x="8.1" y="1.7"/>
-      </points>
-      <bodyColor hex="ffffff"/>
-      <borderColor hex="000000"/>
-      <labelColor hex="000000"/>
-      <leadColor hex="000000"/>
-      <display>NAME</display>
-      <flipStanding>false</flipStanding>
-      <labelOriantation>Directional</labelOriantation>
-      <moveLabel>false</moveLabel>
-      <hideShortLeads>false</hideShortLeads>
-      <thickness value="1.0" unit="mm"/>
-      <layer>_1</layer>
-      <endingStyle>Round</endingStyle>
-    </diylc.connectivity.CopperTrace>
-    <diylc.connectivity.CopperTrace>
-      <id>fc551c6f-4629-4c57-a66c-4d61855fbc20</id>
-      <name>Trace10</name>
-      <alpha>127</alpha>
-      <points>
-        <point x="8.2" y="3.2"/>
-        <point x="8.2" y="3.4"/>
-        <point x="8.2" y="3.3"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -428,9 +406,9 @@
       <name>Trace5</name>
       <alpha>127</alpha>
       <points>
-        <point x="8.2" y="2.2"/>
+        <point x="8.2" y="2.3"/>
         <point x="8.2" y="2.7"/>
-        <point x="8.2" y="2.45"/>
+        <point x="8.2" y="2.5000000000000004"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -472,8 +450,8 @@
       <name>Trace15</name>
       <alpha>127</alpha>
       <points>
-        <point x="7.9" y="2.1"/>
-        <point x="7.9" y="3.4"/>
+        <point x="7.9" y="2.2"/>
+        <point x="7.9" y="3.3"/>
         <point x="7.9" y="2.75"/>
       </points>
       <bodyColor hex="ffffff"/>
@@ -494,9 +472,9 @@
       <name>Trace16</name>
       <alpha>127</alpha>
       <points>
-        <point x="7.9" y="3.4"/>
-        <point x="8.1" y="3.4"/>
-        <point x="8.0" y="3.4"/>
+        <point x="7.9" y="3.3"/>
+        <point x="8.6" y="3.4"/>
+        <point x="8.25" y="3.35"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -517,8 +495,8 @@
       <alpha>127</alpha>
       <points>
         <point x="7.7" y="1.9"/>
-        <point x="7.9" y="1.9"/>
         <point x="7.8" y="1.9"/>
+        <point x="7.75" y="1.9"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -604,9 +582,9 @@
       <name>Trace22</name>
       <alpha>127</alpha>
       <points>
-        <point x="7.9" y="2.0"/>
+        <point x="7.8" y="2.0"/>
         <point x="8.0" y="2.0"/>
-        <point x="7.95" y="2.0"/>
+        <point x="7.9" y="2.0"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -957,8 +935,8 @@
       <alpha>127</alpha>
       <points>
         <point x="8.1" y="3.2"/>
-        <point x="8.7" y="3.2"/>
-        <point x="8.4" y="3.2"/>
+        <point x="8.6" y="3.2"/>
+        <point x="8.35" y="3.2"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -978,9 +956,9 @@
       <name>Trace38</name>
       <alpha>127</alpha>
       <points>
-        <point x="8.7" y="3.0"/>
-        <point x="8.7" y="3.2"/>
-        <point x="8.7" y="3.1"/>
+        <point x="8.6" y="3.0"/>
+        <point x="8.6" y="3.2"/>
+        <point x="8.6" y="3.1"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -1018,35 +996,13 @@
       <endingStyle>Round</endingStyle>
     </diylc.connectivity.CopperTrace>
     <diylc.connectivity.CopperTrace>
-      <id>df38123e-8cd4-43c4-b8d3-2a5efe93a610</id>
-      <name>Trace39</name>
-      <alpha>127</alpha>
-      <points>
-        <point x="8.8" y="2.2"/>
-        <point x="8.8" y="1.9"/>
-        <point x="8.8" y="2.05"/>
-      </points>
-      <bodyColor hex="ffffff"/>
-      <borderColor hex="000000"/>
-      <labelColor hex="000000"/>
-      <leadColor hex="00ff00"/>
-      <display>NAME</display>
-      <flipStanding>false</flipStanding>
-      <labelOriantation>Directional</labelOriantation>
-      <moveLabel>false</moveLabel>
-      <hideShortLeads>false</hideShortLeads>
-      <thickness value="1.0" unit="mm"/>
-      <layer>_1</layer>
-      <endingStyle>Round</endingStyle>
-    </diylc.connectivity.CopperTrace>
-    <diylc.connectivity.CopperTrace>
       <id>ecdc0016-0a70-413a-9fec-e99403c11600</id>
       <name>Trace41</name>
       <alpha>127</alpha>
       <points>
-        <point x="8.8" y="1.6"/>
-        <point x="8.8" y="1.9"/>
-        <point x="8.8" y="1.75"/>
+        <point x="8.7" y="1.7"/>
+        <point x="8.7" y="2.2"/>
+        <point x="8.7" y="1.95"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -1067,8 +1023,8 @@
       <alpha>127</alpha>
       <points>
         <point x="8.9" y="1.5"/>
-        <point x="8.6" y="1.5"/>
-        <point x="8.75" y="1.5"/>
+        <point x="8.5" y="1.6"/>
+        <point x="8.7" y="1.55"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -1198,9 +1154,9 @@
       <name>Trace45</name>
       <alpha>127</alpha>
       <points>
-        <point x="8.2" y="2.2"/>
+        <point x="8.2" y="2.3"/>
         <point x="8.3" y="2.2"/>
-        <point x="8.25" y="2.2"/>
+        <point x="8.25" y="2.25"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -1264,31 +1220,9 @@
       <name>Trace48</name>
       <alpha>127</alpha>
       <points>
-        <point x="8.8" y="1.6"/>
-        <point x="8.7" y="1.6"/>
-        <point x="8.75" y="1.6"/>
-      </points>
-      <bodyColor hex="ffffff"/>
-      <borderColor hex="000000"/>
-      <labelColor hex="000000"/>
-      <leadColor hex="00ff00"/>
-      <display>NAME</display>
-      <flipStanding>false</flipStanding>
-      <labelOriantation>Directional</labelOriantation>
-      <moveLabel>false</moveLabel>
-      <hideShortLeads>false</hideShortLeads>
-      <thickness value="1.0" unit="mm"/>
-      <layer>_1</layer>
-      <endingStyle>Round</endingStyle>
-    </diylc.connectivity.CopperTrace>
-    <diylc.connectivity.CopperTrace>
-      <id>4a23eb4c-1c89-40bb-8146-20c3234f9cce</id>
-      <name>Trace49</name>
-      <alpha>127</alpha>
-      <points>
-        <point x="8.6" y="1.6"/>
-        <point x="8.7" y="1.6"/>
-        <point x="8.65" y="1.6"/>
+        <point x="8.7" y="1.7"/>
+        <point x="8.5" y="1.7"/>
+        <point x="8.6" y="1.7"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -1309,30 +1243,8 @@
       <alpha>127</alpha>
       <points>
         <point x="8.5" y="2.1"/>
-        <point x="8.5" y="1.7"/>
-        <point x="8.5" y="1.9"/>
-      </points>
-      <bodyColor hex="ffffff"/>
-      <borderColor hex="000000"/>
-      <labelColor hex="000000"/>
-      <leadColor hex="00ff00"/>
-      <display>NAME</display>
-      <flipStanding>false</flipStanding>
-      <labelOriantation>Directional</labelOriantation>
-      <moveLabel>false</moveLabel>
-      <hideShortLeads>false</hideShortLeads>
-      <thickness value="1.0" unit="mm"/>
-      <layer>_1</layer>
-      <endingStyle>Round</endingStyle>
-    </diylc.connectivity.CopperTrace>
-    <diylc.connectivity.CopperTrace>
-      <id>80ab9e45-2dde-48ed-b9ff-01102639bc54</id>
-      <name>Trace50</name>
-      <alpha>127</alpha>
-      <points>
-        <point x="8.6" y="1.7"/>
-        <point x="8.5" y="1.7"/>
-        <point x="8.55" y="1.7"/>
+        <point x="8.5" y="1.8"/>
+        <point x="8.5" y="1.95"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -1419,8 +1331,52 @@
       <alpha>127</alpha>
       <points>
         <point x="8.5" y="1.8"/>
-        <point x="8.4" y="1.8"/>
-        <point x="8.45" y="1.8"/>
+        <point x="8.3" y="1.8"/>
+        <point x="8.399999999999999" y="1.8"/>
+      </points>
+      <bodyColor hex="ffffff"/>
+      <borderColor hex="000000"/>
+      <labelColor hex="000000"/>
+      <leadColor hex="00ff00"/>
+      <display>NAME</display>
+      <flipStanding>false</flipStanding>
+      <labelOriantation>Directional</labelOriantation>
+      <moveLabel>false</moveLabel>
+      <hideShortLeads>false</hideShortLeads>
+      <thickness value="1.0" unit="mm"/>
+      <layer>_1</layer>
+      <endingStyle>Round</endingStyle>
+    </diylc.connectivity.CopperTrace>
+    <diylc.connectivity.CopperTrace>
+      <id>9e73c27f-032a-4b1f-bdd1-88148dbd0cf6</id>
+      <name>Trace10</name>
+      <alpha>127</alpha>
+      <points>
+        <point x="8.6" y="3.2"/>
+        <point x="8.8" y="3.4"/>
+        <point x="8.7" y="3.3"/>
+      </points>
+      <bodyColor hex="ffffff"/>
+      <borderColor hex="000000"/>
+      <labelColor hex="000000"/>
+      <leadColor hex="000000"/>
+      <display>NAME</display>
+      <flipStanding>false</flipStanding>
+      <labelOriantation>Directional</labelOriantation>
+      <moveLabel>false</moveLabel>
+      <hideShortLeads>false</hideShortLeads>
+      <thickness value="1.0" unit="mm"/>
+      <layer>_1</layer>
+      <endingStyle>Round</endingStyle>
+    </diylc.connectivity.CopperTrace>
+    <diylc.connectivity.CopperTrace>
+      <id>89127584-bb54-4465-8eab-9fbf6a75f018</id>
+      <name>Trace39</name>
+      <alpha>127</alpha>
+      <points>
+        <point x="7.8" y="2.1"/>
+        <point x="7.9" y="2.2"/>
+        <point x="7.85" y="2.15"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -1441,7 +1397,7 @@
       <alpha>127</alpha>
       <size value="0.09" unit="in"/>
       <color hex="000000"/>
-      <point x="8.1" y="3.4"/>
+      <point x="8.7" y="3.4"/>
       <type>ROUND</type>
       <holeSize value="0.8" unit="mm"/>
       <layer>_1</layer>
@@ -1453,7 +1409,7 @@
       <alpha>127</alpha>
       <size value="0.09" unit="in"/>
       <color hex="000000"/>
-      <point x="8.1" y="3.4"/>
+      <point x="8.7" y="3.4"/>
       <type>ROUND</type>
       <holeSize value="0.8" unit="mm"/>
       <layer>_1</layer>
@@ -1479,7 +1435,7 @@
       <labelOriantation>Directional</labelOriantation>
       <moveLabel>false</moveLabel>
       <hideShortLeads>false</hideShortLeads>
-      <value value="10.0" unit="K"/>
+      <value value="1.0" unit="K"/>
       <power>HALF</power>
       <colorCode>_5_BAND</colorCode>
       <shape>Tubular</shape>
@@ -1584,31 +1540,6 @@
       <colorCode>_5_BAND</colorCode>
       <shape>Tubular</shape>
     </diylc.passive.Resistor>
-    <diylc.passive.Resistor>
-      <id>1d8f074e-8bb5-4776-aef7-4d72b28b6674</id>
-      <name>R4</name>
-      <alpha>127</alpha>
-      <length value="0.3" unit="in"/>
-      <width value="0.125" unit="in"/>
-      <points>
-        <point x="7.1" y="0.4"/>
-        <point x="8.1" y="0.4"/>
-        <point x="7.6" y="0.4"/>
-      </points>
-      <bodyColor hex="82cffd"/>
-      <borderColor hex="5b90b1"/>
-      <labelColor hex="000000"/>
-      <leadColor hex="cccccc"/>
-      <display>NAME</display>
-      <flipStanding>false</flipStanding>
-      <labelOriantation>Directional</labelOriantation>
-      <moveLabel>false</moveLabel>
-      <hideShortLeads>false</hideShortLeads>
-      <value value="100.0" unit="K"/>
-      <power>HALF</power>
-      <colorCode>_5_BAND</colorCode>
-      <shape>Tubular</shape>
-    </diylc.passive.Resistor>
     <diylc.semiconductors.TransistorTO92>
       <id>bf6d6627-00be-4826-a628-9136fe8ba973</id>
       <name>Q1</name>
@@ -1617,9 +1548,9 @@
       <pinout>BJT_EBC</pinout>
       <orientation>DEFAULT</orientation>
       <controlPoints>
-        <point x="7.9" y="1.9"/>
-        <point x="7.9" y="2.0"/>
-        <point x="7.9" y="2.1"/>
+        <point x="7.8" y="1.9"/>
+        <point x="7.8" y="2.0"/>
+        <point x="7.8" y="2.1"/>
       </controlPoints>
       <bodyColor hex="808080"/>
       <borderColor hex="595959"/>
@@ -1707,10 +1638,11 @@
       <name>Weule Out</name>
       <alpha>127</alpha>
       <controlPoints>
-        <point x="8.2" y="3.4"/>
-        <point x="8.1" y="3.4"/>
+        <point x="8.799999999999999" y="3.4"/>
+        <point x="8.7" y="3.4"/>
+        <point x="8.6" y="3.4"/>
       </controlPoints>
-      <count>_2</count>
+      <count>_3</count>
       <orientation>_90</orientation>
       <bodyColor hex="90ab66"/>
       <borderColor hex="647747"/>
@@ -1738,7 +1670,7 @@
       <labelOriantation>Directional</labelOriantation>
       <moveLabel>false</moveLabel>
       <hideShortLeads>false</hideShortLeads>
-      <value></value>
+      <value>LED Strip 44mA@3,1V</value>
     </diylc.semiconductors.LED>
     <diylc.connectivity.HookupWire>
       <id>48598651-2d29-4fc7-9e0d-d19553b7478c</id>
@@ -1809,9 +1741,9 @@
       <pinout>BJT_EBC</pinout>
       <orientation>DEFAULT</orientation>
       <controlPoints>
-        <point x="8.6" y="1.5"/>
-        <point x="8.6" y="1.6"/>
-        <point x="8.6" y="1.7"/>
+        <point x="8.5" y="1.6"/>
+        <point x="8.5" y="1.7"/>
+        <point x="8.5" y="1.8"/>
       </controlPoints>
       <bodyColor hex="808080"/>
       <borderColor hex="595959"/>
@@ -1952,9 +1884,9 @@
       <length value="0.25" unit="in"/>
       <width value="0.125" unit="in"/>
       <points>
-        <point x="8.4" y="1.4"/>
-        <point x="8.4" y="1.8"/>
-        <point x="8.4" y="1.6"/>
+        <point x="8.3" y="1.4"/>
+        <point x="8.3" y="1.8"/>
+        <point x="8.3" y="1.6"/>
       </points>
       <bodyColor hex="f0e68c"/>
       <borderColor hex="a8a162"/>
@@ -1970,12 +1902,37 @@
       <voltage>_63V</voltage>
       <voltageNew value="3.3" unit="V"/>
     </diylc.passive.RadialCeramicDiskCapacitor>
+    <diylc.passive.Resistor>
+      <id>2f102df3-8242-404a-ba56-5a6cfa5b369f</id>
+      <name>R8</name>
+      <alpha>127</alpha>
+      <length value="0.3" unit="in"/>
+      <width value="0.125" unit="in"/>
+      <points>
+        <point x="6.3" y="2.0"/>
+        <point x="6.9" y="2.0"/>
+        <point x="6.6" y="2.0"/>
+      </points>
+      <bodyColor hex="82cffd"/>
+      <borderColor hex="5b90b1"/>
+      <labelColor hex="000000"/>
+      <leadColor hex="cccccc"/>
+      <display>NAME</display>
+      <flipStanding>false</flipStanding>
+      <labelOriantation>Directional</labelOriantation>
+      <moveLabel>false</moveLabel>
+      <hideShortLeads>false</hideShortLeads>
+      <value value="100.0" unit="K"/>
+      <power>HALF</power>
+      <colorCode>_5_BAND</colorCode>
+      <shape>Tubular</shape>
+    </diylc.passive.Resistor>
     <diylc.connectivity.HookupWire>
       <id>0807dac3-0b3e-4292-9638-539314c65d38</id>
       <name>W1</name>
       <alpha>127</alpha>
       <controlPoints2>
-        <point x="8.1" y="3.4"/>
+        <point x="8.6" y="3.4"/>
         <point x="7.5" y="3.8"/>
         <point x="7.8" y="4.0"/>
         <point x="8.1" y="3.8"/>
@@ -1994,7 +1951,7 @@
       <name>W2</name>
       <alpha>127</alpha>
       <controlPoints2>
-        <point x="8.2" y="3.4"/>
+        <point x="8.799999999999999" y="3.4"/>
         <point x="8.7" y="3.6"/>
         <point x="9.2" y="4.1"/>
         <point x="8.5" y="3.8"/>
@@ -2031,7 +1988,7 @@
       <orientation>_90</orientation>
     </diylc.misc.Label>
     <diylc.misc.Label>
-      <id>783c333c-e362-454e-b66e-d175bcab2112</id>
+      <id>85d923d7-1dd2-4338-b84d-d4e4dc5b72e4</id>
       <name>LAB19</name>
       <point x="8.4" y="2.1"/>
       <text>DATA</text>
@@ -2042,7 +1999,7 @@
       <orientation>_90</orientation>
     </diylc.misc.Label>
     <diylc.misc.Label>
-      <id>783c333c-e362-454e-b66e-d175bcab2112</id>
+      <id>752f942c-44ef-42f7-a067-fa1b05b3dfe0</id>
       <name>LAB20</name>
       <point x="8.5" y="2.1"/>
       <text>VCC</text>
