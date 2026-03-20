@@ -1,1 +1,0 @@
-- Receiver Module: RX470C-V01
