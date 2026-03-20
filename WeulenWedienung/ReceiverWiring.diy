@@ -622,35 +622,13 @@
       <endingStyle>Round</endingStyle>
     </diylc.connectivity.CopperTrace>
     <diylc.connectivity.CopperTrace>
-      <id>af5f6adf-120c-44e5-aacd-ec7c1fd4aae9</id>
-      <name>Trace28</name>
-      <alpha>127</alpha>
-      <points>
-        <point x="7.3" y="2.2"/>
-        <point x="6.9" y="2.2"/>
-        <point x="7.1" y="2.2"/>
-      </points>
-      <bodyColor hex="ffffff"/>
-      <borderColor hex="000000"/>
-      <labelColor hex="000000"/>
-      <leadColor hex="0007ff"/>
-      <display>NAME</display>
-      <flipStanding>false</flipStanding>
-      <labelOriantation>Directional</labelOriantation>
-      <moveLabel>false</moveLabel>
-      <hideShortLeads>false</hideShortLeads>
-      <thickness value="1.0" unit="mm"/>
-      <layer>_1</layer>
-      <endingStyle>Round</endingStyle>
-    </diylc.connectivity.CopperTrace>
-    <diylc.connectivity.CopperTrace>
       <id>1bd917f8-03e7-45ee-837c-ae196524716c</id>
       <name>Trace29</name>
       <alpha>127</alpha>
       <points>
-        <point x="6.9" y="2.2"/>
+        <point x="7.3" y="2.2"/>
         <point x="6.5" y="2.2"/>
-        <point x="6.7" y="2.2"/>
+        <point x="6.9" y="2.2"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -803,8 +781,8 @@
       <alpha>127</alpha>
       <points>
         <point x="6.3" y="1.4"/>
-        <point x="6.3" y="2.5"/>
-        <point x="6.3" y="1.95"/>
+        <point x="6.3" y="2.6"/>
+        <point x="6.3" y="2.0"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -930,28 +908,6 @@
       <endingStyle>Round</endingStyle>
     </diylc.connectivity.CopperTrace>
     <diylc.connectivity.CopperTrace>
-      <id>38a9abed-d703-48e6-9caa-f86997847f5b</id>
-      <name>Trace36</name>
-      <alpha>127</alpha>
-      <points>
-        <point x="6.3" y="2.6"/>
-        <point x="6.3" y="2.5"/>
-        <point x="6.3" y="2.55"/>
-      </points>
-      <bodyColor hex="ffffff"/>
-      <borderColor hex="000000"/>
-      <labelColor hex="000000"/>
-      <leadColor hex="000000"/>
-      <display>NAME</display>
-      <flipStanding>false</flipStanding>
-      <labelOriantation>Directional</labelOriantation>
-      <moveLabel>false</moveLabel>
-      <hideShortLeads>false</hideShortLeads>
-      <thickness value="1.0" unit="mm"/>
-      <layer>_1</layer>
-      <endingStyle>Round</endingStyle>
-    </diylc.connectivity.CopperTrace>
-    <diylc.connectivity.CopperTrace>
       <id>a112cef6-3ba7-41f6-a09f-49745e346132</id>
       <name>Trace42</name>
       <alpha>127</alpha>
@@ -986,28 +942,6 @@
       <borderColor hex="000000"/>
       <labelColor hex="000000"/>
       <leadColor hex="0007ff"/>
-      <display>NAME</display>
-      <flipStanding>false</flipStanding>
-      <labelOriantation>Directional</labelOriantation>
-      <moveLabel>false</moveLabel>
-      <hideShortLeads>false</hideShortLeads>
-      <thickness value="1.0" unit="mm"/>
-      <layer>_1</layer>
-      <endingStyle>Round</endingStyle>
-    </diylc.connectivity.CopperTrace>
-    <diylc.connectivity.CopperTrace>
-      <id>4cee69ca-eb21-4ba3-854f-815e03c1afe9</id>
-      <name>Trace44</name>
-      <alpha>127</alpha>
-      <points>
-        <point x="6.7" y="3.1"/>
-        <point x="6.7" y="2.6"/>
-        <point x="6.7" y="2.85"/>
-      </points>
-      <bodyColor hex="ffffff"/>
-      <borderColor hex="000000"/>
-      <labelColor hex="000000"/>
-      <leadColor hex="000000"/>
       <display>NAME</display>
       <flipStanding>false</flipStanding>
       <labelOriantation>Directional</labelOriantation>
@@ -1111,8 +1045,8 @@
       <alpha>127</alpha>
       <points>
         <point x="6.7" y="3.5"/>
-        <point x="6.7" y="3.1"/>
-        <point x="6.7" y="3.3"/>
+        <point x="6.7" y="2.6"/>
+        <point x="6.7" y="3.05"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -1882,6 +1816,17 @@
       <name>LAB25</name>
       <point x="6.4" y="2.4"/>
       <text>Q3</text>
+      <font name="Dialog.plain" size="14" style="0"/>
+      <color hex="000000"/>
+      <horizontalAlignment>CENTER</horizontalAlignment>
+      <verticalAlignment>CENTER</verticalAlignment>
+      <orientation>DEFAULT</orientation>
+    </diylc.misc.Label>
+    <diylc.misc.Label>
+      <id>4dc1dfa1-f4fc-443e-8635-d0b42a4cc0cb</id>
+      <name>LAB21</name>
+      <point x="8.5" y="1.7"/>
+      <text>Q4</text>
       <font name="Dialog.plain" size="14" style="0"/>
       <color hex="000000"/>
       <horizontalAlignment>CENTER</horizontalAlignment>
