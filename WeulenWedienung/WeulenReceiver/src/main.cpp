@@ -22,9 +22,12 @@ int Off = 5131;
 
 void setup()
 {
+    pinMode(D1, OUTPUT);
     pinMode(D6, OUTPUT);
-    digitalWrite(D6, LOW);
+    pinMode(D7, OUTPUT);
     pinMode(D8, OUTPUT);
+    digitalWrite(D6, LOW);
+    digitalWrite(D1, LOW);
     Serial.begin(115200);
 
     pinMode(LED_BUILTIN, OUTPUT);
@@ -69,11 +72,13 @@ void mySwitchLoop()
 
     if (receivedValue == On)
     {
-        digitalWrite(D6, HIGH);
+        digitalWrite(D6, LOW);
+        digitalWrite(D7, HIGH);
     }
     else if (receivedValue == Off)
     {
-        digitalWrite(D6, LOW);
+        digitalWrite(D6, HIGH);
+        digitalWrite(D7, LOW);
     }
 
     mySwitch->resetAvailable();
